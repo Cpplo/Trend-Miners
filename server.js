@@ -18,8 +18,13 @@ const types = {
 function safePath(requestPath) {
   const decoded = decodeURIComponent(requestPath.split('?')[0]);
   const routedPath = decoded === '/manus-routes.json' ? '/public/manus-routes.json' : decoded;
-  const normalized = path.normalize(routedPath).replace(/^([.][.][\\/])+/, '');
-  return path.join(root, normalized === '/' ? 'index.html' : normalized);
+  const relativePath = routedPath === '/' ? 'index.html' : routedPath.replace(/^[/\\]+/, '');
+  const filePath = path.resolve(root, relativePath);
+  const relativeToRoot = path.relative(root, filePath);
+  if (relativeToRoot.startsWith('..') || path.isAbsolute(relativeToRoot)) {
+    throw new Error('Path is outside the site root');
+  }
+  return filePath;
 }
 
 const server = http.createServer((request, response) => {
