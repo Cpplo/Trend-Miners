@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#1E3A5F" />
+  <meta name="description"
+    content="ReviewLab compares Thai restaurant review classification across Wongnai and Google Maps." />
+  <title>ReviewLab — Thai Restaurant Review Classification</title>
+  <link rel="icon" href="public/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#home">Skip to content</a>
+
+  <header class="site-header" data-header>
+    <div class="container header-inner">
+      <a class="wordmark" href="#home" aria-label="ReviewLab home">
+        <span class="wordmark-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span>Trend<span>Miners</span></span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="menu-icon" aria-hidden="true"><span></span><span></span></span>
+        <span class="menu-label" aria-hidden="true">Menu</span>
+      </button>
+
+      <nav class="primary-nav" id="primary-navigation" aria-label="Primary navigation">
+        <a href="#problem">Problem</a>
+        <a href="#data">Data</a>
+        <a href="#method">Method</a>
+        <a href="#progress">Progress</a>
+        <a href="#results">Results</a>
+        <a href="#files">Files</a>
+        <a class="nav-cta" href="#files">Project links <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero section-dark" id="home" data-section>
+      <div class="hero-grid container">
+        <div class="hero-copy reveal">
+          <div class="eyebrow eyebrow-light"><span class="eyebrow-dot"></span> ICT324 · Classification Track</div>
+          <h1>Reading the <em>feeling</em> behind every review.</h1>
+          <p class="hero-lede">A Comparative Study of Restaurant Review Sentiment Classification Across Thai Review
+            Platforms</p>
+          <p class="hero-lede">This project studies sentiment classification of Thai restaurant reviews from two
+            different review platforms: Wongnai and Google Maps. We compare traditional machine learning models and
+            different class-imbalance handling strategies to determine which approach performs best across different
+            review platforms.</p>
+          <div class="hero-actions">
+            <a class="button button-light" href="#problem">Explore the study <span aria-hidden="true">↓</span></a>
+            <a class="text-link text-link-light" href="#method">View the research map <span
+                aria-hidden="true">↗</span></a>
+          </div>
+          <div class="hero-meta">
+            <span><strong>2026</strong> ICT324: Data Mining Project</span>
+            <span class="meta-divider"></span>
+            <span>Last Updated <strong>28.10.26</strong></span>
+            <span class="meta-divider"></span>
+            <span>Team Members: <strong>Moon, Yann, Nipo</strong></span>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal reveal-delay" aria-label="Research overview graphic">
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+          <div class="signal-card">
+            <div class="signal-card-top"><span>Review Signal</span><span class="signal-status"><i></i> mapping</span>
+            </div>
+            <div class="signal-score"><strong>5</strong><span>/ 5<br />Rating Classes</span></div>
+            <div class="signal-bars" aria-hidden="true">
+              <span style="--bar-height: 34%"></span><span style="--bar-height: 53%"></span><span
+                style="--bar-height: 76%"></span><span style="--bar-height: 46%"></span><span
+                style="--bar-height: 90%"></span><span style="--bar-height: 62%"></span><span
+                style="--bar-height: 78%"></span><span style="--bar-height: 42%"></span><span
+                style="--bar-height: 68%"></span><span style="--bar-height: 84%"></span><span
+                style="--bar-height: 50%"></span><span style="--bar-height: 72%"></span>
+            </div>
+            <div class="signal-labels"><span>Wongnai</span><span>Google Maps</span></div>
+          </div>
+          <div class="floating-note note-one"><span>01</span> Platform Comparison</div>
+          <div class="floating-note note-two"><span>02</span> Class Balance</div>
+          <div class="hero-stamp">TH<br /><span>REVIEW</span><br />LAB</div>
+        </div>
+      </div>
+      <div class="hero-bottom container"><span>Scroll to investigate</span><span class="scroll-line"></span><span>01 —
+          07</span></div>
+    </section>
+
+    <section class="section section-light" id="problem" data-section>
+      <div class="container section-grid">
+        <div class="section-intro reveal">
+          <div class="section-number">01 <span>/ 07</span></div>
+          <p class="eyebrow">The question</p>
+          <h2 class="sech">Two Platforms.<br /><em>One</em> Complex Signal.</h2>
+        </div>
+        <div class="section-body reveal reveal-delay">
+          <p class="lead-copy">Online restaurant reviews hold a detailed record of customer satisfaction. Yet the signal
+            is rarely balanced: some ratings dominate, while the quiet minority is hardest for a model to recognize.</p>
+          <p>Review language also shifts between platforms. Wongnai and Google Maps carry different writing styles,
+            rating habits, and review contexts. This project asks whether the way we handle class imbalance changes what
+            a model can learn—and how well those lessons travel.</p>
+          <div class="question-card">
+            <span class="question-mark">?</span>
+            <div>
+              <p class="eyebrow">Research question</p>
+              <h3>How do class-imbalance strategies affect model performance across Thai restaurant review platforms?
+              </h3>
+            </div>
+          </div>
+          <div class="objective-row">
+            <div><span>01</span>
+              <p>Classify Thai reviews by customer rating.</p>
+            </div>
+            <div><span>02</span>
+              <p>Compare models across two platforms.</p>
+            </div>
+            <div><span>03</span>
+              <p>Find the most effective approach.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-neutral" id="data" data-section>
+      <div class="container">
+        <div class="section-heading-row reveal">
+          <div>
+            <div class="section-number">02 <span>/ 07</span></div>
+            <p class="eyebrow">The evidence</p>
+            <h2>Data with<br /><em>context.</em></h2>
+          </div>
+          <p class="heading-aside">Two distinct sources keep the comparison honest. Each dataset is prepared separately
+            before the models meet the same experimental framework.</p>
+        </div>
+        <div class="platform-grid">
+          <article class="platform-card platform-card-dark reveal">
+            <div class="card-kicker"><span class="card-index">A</span><span>Dataset 01</span><span
+                class="card-arrow">↗</span></div>
+            <h3>Wongnai</h3>
+            <p>Thai restaurant reviews collected from the public Wongnai dataset on Hugging Face.</p>
+            <div class="platform-stats">
+              <div><strong>~19,958</strong><span>reviews</span></div>
+              <div><strong>2025</strong><span>collection year</span></div>
+              <div><strong>1—5</strong><span>star rating</span></div>
+            </div>
+            <div class="tag-row"><span>Thai Language</span><span>Review Text</span></div>
+          </article>
+          <article class="platform-card reveal reveal-delay">
+            <div class="card-kicker"><span class="card-index">B</span><span>Dataset 02</span><span
+                class="card-arrow">↗</span></div>
+            <h3>Google Maps</h3>
+            <p>A self-collected sample from selected restaurants and categories across Thailand.</p>
+            <div class="platform-stats">
+              <div><strong>~1,000</strong><span>target records</span></div>
+              <div><strong>2026</strong><span>collection year</span></div>
+              <div><strong>1—5</strong><span>star rating</span></div>
+            </div>
+            <div class="tag-row"><span>Thailand</span><span>Self-collected Dataset</span></div>
+          </article>
+        </div>
+        <div class="data-strip reveal">
+          <div><span class="strip-label">Planned fields</span><strong>ReviewID · RestaurantName · Location · Rating ·
+              ReviewDate · ReviewText · Language · CollectionDate</strong></div>
+          <div class="strip-note">No personal information in the public dataset.</div>
+        </div>
+        <div class="prep-row reveal">
+          <div><span class="section-number small">03 <span>/ 07</span></span>
+            <p class="eyebrow">Preparation</p>
+          </div>
+          <div class="prep-steps"><span><b>01</b> Clean</span><span><b>02</b> Normalize</span><span><b>03</b>
+              Tokenize</span><span><b>04</b> Vectorize</span><span><b>05</b> Balance</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-paper" id="method" data-section>
+      <div class="container">
+        <div class="section-heading-row reveal">
+          <div>
+            <div class="section-number">04 <span>/ 07</span></div>
+            <p class="eyebrow">The approach</p>
+            <h2>From raw text<br /><em>to insight.</em></h2>
+          </div>
+          <p class="heading-aside">A repeatable CRISP-DM workflow keeps every comparison traceable—from cleaning Thai
+            text to reading the final confusion matrix.</p>
+        </div>
+        <div class="method-layout">
+          <div class="method-rail reveal"><span class="rail-label">CRISP-DM</span>
+            <div class="rail-line"><i></i><i></i><i></i><i></i><i></i><i></i></div><span class="rail-end">06</span>
+          </div>
+          <div class="method-content">
+            <div class="method-flow reveal reveal-delay">
+              <div class="method-step"><span>01</span>
+                <h3>Understand</h3>
+                <p>Frame the platform and class-imbalance question.</p>
+              </div>
+              <div class="method-step"><span>02</span>
+                <h3>Prepare</h3>
+                <p>Clean Thai text, remove noise, and create TF-IDF features.</p>
+              </div>
+              <div class="method-step"><span>03</span>
+                <h3>Model</h3>
+                <p>Train three algorithms under three balance strategies.</p>
+              </div>
+            </div>
+            <div class="model-panel reveal">
+              <div class="panel-top">
+                <p class="eyebrow">Experiment matrix</p><span class="panel-note">Placeholder results</span>
+              </div>
+              <div class="model-list">
+                <div><span class="model-type">Baseline</span><strong>Majority Classifier</strong><em>reference</em>
+                </div>
+                <div><span class="model-type">Model 01</span><strong>Logistic Regression</strong><em>interpretable</em>
+                </div>
+                <div><span class="model-type">Model 02</span><strong>Random Forest</strong><em>ensemble</em></div>
+                <div><span class="model-type">Model 03</span><strong>XGBoost</strong><em>boosted trees</em></div>
+              </div>
+              <div class="strategy-row"><span>No handling</span><span>Class weighting</span><span>SMOTE /
+                  oversampling</span></div>
+            </div>
+            <div class="metrics-row reveal">
+              <div>
+                <p class="eyebrow">What we measure</p><strong>Macro-F1</strong><span>Primary lens for imbalanced
+                  classes.</span>
+              </div>
+              <div><strong>Accuracy</strong><span>Overall correctness.</span></div>
+              <div><strong>Recall</strong><span>Coverage by class.</span></div>
+              <div><strong>Confusion Matrix</strong><span>Where models disagree.</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark progress-section" id="progress" data-section>
+      <div class="container">
+        <div class="section-heading-row section-heading-light reveal">
+          <div>
+            <div class="section-number">05 <span>/ 07</span></div>
+            <p class="eyebrow eyebrow-light">The journey</p>
+            <h2>Progress, in<br /><em>public.</em></h2>
+          </div>
+          <p class="heading-aside">A living log keeps the work legible: what is done, what is moving, and what comes
+            next.</p>
+        </div>
+        <div class="timeline">
+          <article class="timeline-item timeline-done reveal">
+            <div class="timeline-date"><span>14—16</span><strong>OCT 2026</strong></div>
+            <div class="timeline-marker"><i></i></div>
+            <div class="timeline-copy">
+              <div class="status-pill">Complete</div>
+              <h3>Milestone 01 · Direction</h3>
+              <p>Selected the topic, defined the problem, reviewed related research, and prepared the initial proposal.
+              </p>
+              <div class="timeline-next">Next <span>Finalize datasets · Continue literature review · Prepare webpage</span></div>
+            </div>
+          </article>
+          <article class="timeline-item timeline-current reveal reveal-delay">
+            <div class="timeline-date"><span>28</span><strong>OCT 2026</strong></div>
+            <div class="timeline-marker"><i></i></div>
+            <div class="timeline-copy">
+              <div class="status-pill status-current">In progress</div>
+              <h3>Milestone 02 · Foundation</h3>
+              <p>Confirmed both datasets, the research question, model set, evaluation metrics, and CRISP-DM workflow.
+              </p>
+              <div class="timeline-next">Now <span>Collect Google Maps reviews · clean data</span></div>
+            </div>
+          </article>
+          <article class="timeline-item reveal">
+            <div class="timeline-date"><span>10—12</span><strong>NOV 2026</strong></div>
+            <div class="timeline-marker"><i></i></div>
+            <div class="timeline-copy">
+              <div class="status-pill status-planned">Planned</div>
+              <h3>Milestone 03 · Experiments</h3>
+              <p>Generate TF-IDF features, run baseline and classification models, and record initial results.</p>
+              <div class="timeline-next">Next <span>Prepare the first paper draft</span></div>
+            </div>
+          </article>
+          <article class="timeline-item reveal">
+            <div class="timeline-date"><span>24—26</span><strong>NOV 2026</strong></div>
+            <div class="timeline-marker"><i></i></div>
+            <div class="timeline-copy">
+              <div class="status-pill status-planned">Planned</div>
+              <h3>Final milestone · Interpretation</h3>
+              <p>Complete experiments, interpret the results, finalize the paper, and prepare the final presentation.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-light results-section" id="results" data-section>
+      <div class="container">
+        <div class="section-heading-row reveal">
+          <div>
+            <div class="section-number">06 <span>/ 07</span></div>
+            <p class="eyebrow">The readout</p>
+            <h2>Results will<br /><em>take shape here.</em></h2>
+          </div>
+          <p class="heading-aside">The structure is ready for the final experiment log. Drop in scores, charts, and the
+            short interpretation that matters most.</p>
+        </div>
+        <div class="results-board reveal">
+          <div class="board-header">
+            <div>
+              <p class="eyebrow">Planned comparison</p>
+              <h3>Macro-F1 by model & strategy</h3>
+            </div><span class="board-badge">Awaiting experiments</span>
+          </div>
+          <div class="chart-placeholder">
+            <div class="y-axis"><span>1.0</span><span>0.75</span><span>0.50</span><span>0.25</span><span>0.0</span>
+            </div>
+            <div class="chart-area">
+              <div class="chart-gridline"></div>
+              <div class="chart-gridline"></div>
+              <div class="chart-gridline"></div>
+              <div class="chart-gridline"></div>
+              <div class="chart-bars">
+                <div class="bar-group"><i class="bar bar-a"></i><i class="bar bar-b"></i><i
+                    class="bar bar-c"></i><span>Logistic<br />Regression</span></div>
+                <div class="bar-group"><i class="bar bar-a"></i><i class="bar bar-b"></i><i
+                    class="bar bar-c"></i><span>Random<br />Forest</span></div>
+                <div class="bar-group"><i class="bar bar-a"></i><i class="bar bar-b"></i><i
+                    class="bar bar-c"></i><span>XGBoost</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="chart-legend"><span><i class="legend-dot dot-dark"></i> No handling</span><span><i
+                class="legend-dot dot-greige"></i> Class weighting</span><span><i class="legend-dot dot-gray"></i>
+              SMOTE</span></div>
+        </div>
+        <div class="finding-grid reveal">
+          <div><span class="finding-number">01</span>
+            <h3>Which model performs best?</h3>
+            <p>Placeholder for the headline result.</p>
+          </div>
+          <div><span class="finding-number">02</span>
+            <h3>Does balancing improve Macro-F1?</h3>
+            <p>Placeholder for the strategy comparison.</p>
+          </div>
+          <div><span class="finding-number">03</span>
+            <h3>Can one platform generalize?</h3>
+            <p>Placeholder for the cross-platform read.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-neutral files-section" id="files" data-section>
+      <div class="container">
+        <div class="section-heading-row reveal">
+          <div>
+            <div class="section-number">07 <span>/ 07</span></div>
+            <p class="eyebrow">The library</p>
+            <h2>Everything<br /><em>in one place.</em></h2>
+          </div>
+          <p class="heading-aside">This is the handoff layer. Replace each placeholder with the team’s final paper,
+            code, datasets, citations, and presentation links.</p>
+        </div>
+        <div class="resource-grid reveal"><a class="resource-card resource-card-dark" href="#files"><span
+              class="resource-icon">↳</span><span class="resource-type">Report</span>
+            <h3>Paper PDF</h3>
+            <p>Add the final paper link when ready.</p><span class="resource-link">Add link <b>↗</b></span>
+          </a><a class="resource-card" href="https://huggingface.co/datasets/iamwarint/wongnai-restaurant-review"
+            target="_blank" rel="noreferrer"><span class="resource-icon">◌</span><span class="resource-type">Dataset
+              01</span>
+            <h3>Wongnai 2025</h3>
+            <p>Open the public Hugging Face dataset.</p><span class="resource-link">Open source <b>↗</b></span>
+          </a><a class="resource-card" href="#files"><span class="resource-icon">⌘</span><span
+              class="resource-type">Code</span>
+            <h3>Repository</h3>
+            <p>Add the GitHub or notebook link.</p><span class="resource-link">Add link <b>↗</b></span>
+          </a><a class="resource-card" href="#files"><span class="resource-icon">✦</span><span
+              class="resource-type">References</span>
+            <h3>Reading list</h3>
+            <p>Keep the 10+ final citations together.</p><span class="resource-link">Add list <b>↗</b></span>
+          </a></div>
+        <div class="handoff-banner reveal">
+          <div>
+            <p class="eyebrow">Team handoff</p>
+            <h3>Replace the placeholders with your final story.</h3>
+          </div>
+          <div class="team-placeholders"><span>Thae Su Win Thu</span><span>Yann Naing Kyaw</span><span>Phyo Wai Aung</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer section-dark">
+    <div class="container footer-main"><a class="wordmark wordmark-light" href="#home"><span class="wordmark-mark"
+          aria-hidden="true"><span></span><span></span><span></span></span><span>Trend<span>Miners</span></span></a>
+      <p style="max-width: 500px;">A comparative study of Thai restaurant review sentiment classification across platforms.</p><a
+        class="footer-top" href="#home">Back to top <span>↑</span></a>
+    </div>
+    <div class="container footer-bottom"><span>ICT324 · Introduction to Data Warehousing and Data
+        Mining</span><span>Academic year 2026</span><span>Prepared for project presentation</span></div>
+  </footer>
+</body>
+
+</html>

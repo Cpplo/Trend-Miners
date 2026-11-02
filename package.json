@@ -1,0 +1,9 @@
+{
+  "name": "reviewlab",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ReviewLab Thai restaurant review classification project site",
+  "scripts": {
+    "start": "node server.js"
+  }
+}
