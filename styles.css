@@ -52,7 +52,7 @@ button {
 }
 
 .section {
-  padding: 132px 0;
+  padding: 90px 0;
   overflow: hidden;
 }
 
@@ -65,7 +65,7 @@ button {
 }
 
 .section-paper {
-  background: var(--greige);
+  background: var(--white);
 }
 
 .section-dark {
@@ -318,9 +318,16 @@ button {
 
 h1 em,
 h2 em {
-  font-family: Georgia, "Times New Roman", serif;
-  font-weight: 400;
-  letter-spacing: -.08em;
+  font-family: inherit;
+  font-style: normal;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  color: #315FC4;
+}
+
+.section-dark h1 em,
+.section-dark h2 em {
+  color: #A8C7FF;
 }
 
 .hero-lede {
@@ -978,7 +985,7 @@ h2 em {
 .method-step {
   min-height: 197px;
   padding: 25px 24px;
-  background: var(--greige);
+  background: var(--white);
 }
 
 .method-step span {
@@ -1558,7 +1565,7 @@ h2 em {
   gap: 40px;
   margin-top: 66px;
   padding: 28px 31px;
-  background: var(--greige);
+  background: var(--white);
   border-radius: var(--radius-md);
 }
 
@@ -1659,6 +1666,84 @@ h2 em {
 
 .reveal-delay {
   transition-delay: 100ms !important;
+}
+
+.references-toggle {
+  appearance: none;
+  width: 100%;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.references-toggle:focus-visible {
+  outline: 3px solid var(--navy, #182a40);
+  outline-offset: 5px;
+}
+
+.references-toggle[aria-expanded="true"] {
+  border-color: var(--navy, #182a40);
+}
+
+.references-panel {
+  margin-top: 24px;
+  padding: clamp(22px, 4vw, 40px);
+  background: var(--white, #fff);
+  border: 1px solid var(--gray, #ddd);
+  border-radius: var(--radius-md, 16px);
+}
+
+.references-panel[hidden] {
+  display: none;
+}
+
+.references-panel h3 {
+  margin: 8px 0 20px;
+  font-size: 1.6rem;
+}
+
+.references-items {
+  margin: 0;
+  padding-left: 24px;
+}
+
+.references-items li {
+  padding-left: 8px;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+
+.references-items li+li {
+  margin-top: 16px;
+}
+
+.references-items a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.references-toggle.resource-card-dark {
+  color: var(--white, #fff);
+}
+
+/* Selected card */
+.resource-grid .resource-card.resource-card-dark {
+  background: var(--navy, #182a40);
+  color: var(--white, #fff);
+}
+
+.resource-grid .resource-card.resource-card-dark h3,
+.resource-grid .resource-card.resource-card-dark p,
+.resource-grid .resource-card.resource-card-dark .resource-type,
+.resource-grid .resource-card.resource-card-dark .resource-link {
+  color: inherit;
+}
+
+/* Unselected cards */
+.resource-grid .resource-card:not(.resource-card-dark) {
+  background: var(--white, #fff);
+  color: var(--navy, #182a40);
 }
 
 @media (max-width: 980px) {
@@ -2069,4 +2154,605 @@ h2 em {
   .resource-card {
     transition: none;
   }
+}
+
+/* Library card buttons and their detail panels. */
+button.resource-card {
+  appearance: none;
+  width: 100%;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+button.resource-card:focus-visible {
+  outline: 3px solid var(--navy);
+  outline-offset: 5px;
+}
+
+.resource-panel[hidden] {
+  display: none;
+}
+
+.resource-panel p {
+  line-height: 1.7;
+}
+
+.resource-panel a {
+  color: var(--navy);
+  text-decoration: underline;
+}
+
+/* Keep each detail panel full-width beneath its card row. */
+.resource-grid>.resource-card {
+  order: 0;
+  min-width: 0;
+}
+
+.resource-grid>.resource-panel {
+  order: 1;
+  grid-column: 1 / -1;
+  min-width: 0;
+  margin-top: 7px;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 980px) {
+
+  .resource-grid>[aria-controls="paper-panel"],
+  .resource-grid>[aria-controls="dataset-panel"] {
+    order: 0;
+  }
+
+  .resource-grid>#paper-panel,
+  .resource-grid>#dataset-panel {
+    order: 1;
+  }
+
+  .resource-grid>[aria-controls="repository-panel"],
+  .resource-grid>[aria-controls="references-list"] {
+    order: 2;
+  }
+
+  .resource-grid>#repository-panel,
+  .resource-grid>#references-list {
+    order: 3;
+  }
+}
+
+/* APA reference list: alphabetical, unnumbered, double-spaced hanging indents. */
+.references-apa {
+  list-style: none;
+  padding: 0;
+}
+
+.references-apa li {
+  padding-left: 0.5in;
+  text-indent: -0.5in;
+  line-height: 2;
+  overflow-wrap: anywhere;
+}
+
+.references-apa li+li {
+  margin-top: 0;
+}
+
+/* Numbered references for easier scanning on desktop and phones. */
+.references-apa {
+  list-style: decimal;
+  padding-left: 1.75rem;
+}
+
+.references-apa li {
+  padding-left: 0.5rem;
+  text-indent: 0;
+}
+
+.references-apa li::marker {
+  color: var(--navy);
+  font-weight: 700;
+}
+
+.references-apa li+li {
+  margin-top: 1rem;
+}
+
+/* Compact opening section with more prominent navigation. */
+@media (min-width: 741px) {
+  :root {
+    --header-height: 84px;
+  }
+
+  .site-header .wordmark {
+    font-size: 21px;
+  }
+
+  .primary-nav {
+    font-size: 14px;
+    gap: 24px;
+  }
+}
+
+@media (min-width: 981px) {
+  .hero {
+    min-height: min(740px, 100svh);
+    padding-top: calc(var(--header-height) + 36px);
+    padding-bottom: 28px;
+  }
+
+  .hero-grid {
+    gap: 48px;
+  }
+
+  .hero h1 {
+    font-size: clamp(3rem, 4.3vw, 4.25rem);
+    line-height: 1.04;
+    letter-spacing: -0.055em;
+  }
+
+  .hero-lede {
+    margin-top: 16px;
+    font-size: 14px;
+    line-height: 1.55;
+    text-align: left;
+  }
+
+  .hero-actions {
+    margin-top: 24px;
+    flex-wrap: wrap;
+    gap: 16px 24px;
+  }
+
+  .hero-meta {
+    margin-top: 28px;
+    flex-wrap: wrap;
+    gap: 8px 12px;
+  }
+
+  .hero-visual {
+    min-height: 440px;
+  }
+}
+
+@media (min-width: 741px) and (max-width: 980px) {
+  .primary-nav {
+    gap: 14px;
+    font-size: 13px;
+  }
+
+  .site-header .wordmark {
+    font-size: 19px;
+  }
+}
+
+@media (max-width: 740px) {
+  .hero h1 {
+    font-size: clamp(2.5rem, 9vw, 3.5rem);
+    line-height: 1.06;
+  }
+
+  .hero-lede {
+    margin-top: 18px;
+    font-size: 14px;
+    text-align: left;
+  }
+
+  .hero-actions {
+    margin-top: 24px;
+    flex-wrap: wrap;
+    gap: 18px;
+  }
+
+  .hero-meta {
+    margin-top: 28px;
+  }
+
+  .primary-nav {
+    font-size: 15px;
+  }
+}
+
+/* Compact content sections while preserving responsive grids and panel order. */
+main>.section {
+  padding: 60px 0;
+}
+
+.section h2 {
+  font-size: clamp(2.1rem, 3.8vw, 3.5rem);
+  line-height: 1.06;
+  letter-spacing: -0.05em;
+}
+
+.section-number {
+  margin-bottom: 16px;
+}
+
+.section .eyebrow {
+  margin-bottom: 12px;
+}
+
+.section-heading-row {
+  gap: 32px;
+}
+
+.section-grid {
+  gap: 48px;
+}
+
+.section-body {
+  padding-top: 28px;
+}
+
+.lead-copy {
+  font-size: clamp(1.15rem, 1.8vw, 1.5rem);
+}
+
+.objective-row {
+  margin-top: 28px;
+}
+
+.platform-grid,
+.results-board,
+.resource-grid {
+  margin-top: 36px;
+}
+
+.platform-card {
+  min-height: 270px;
+  padding: 24px;
+}
+
+.platform-card h3 {
+  margin-top: 28px;
+  font-size: 28px;
+}
+
+.platform-stats {
+  margin-top: 26px;
+}
+
+.data-strip {
+  padding: 18px 24px;
+}
+
+.method-step {
+  min-height: 170px;
+  padding: 20px;
+}
+
+.method-step h3 {
+  margin-top: 24px;
+  font-size: 19px;
+}
+
+.model-panel,
+.results-board {
+  padding: 24px;
+}
+
+.metrics-row {
+  margin-top: 28px;
+}
+
+.timeline {
+  margin-top: 40px;
+}
+
+.timeline-item {
+  min-height: 140px;
+  padding: 20px 0;
+}
+
+.timeline-copy h3 {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.timeline-next {
+  margin-top: 10px;
+}
+
+.finding-grid>div {
+  padding-top: 18px;
+}
+
+.finding-grid h3 {
+  margin-top: 14px;
+}
+
+.resource-card {
+  min-height: 230px;
+  padding: 20px;
+}
+
+.resource-type {
+  margin-top: 22px;
+}
+
+.resource-card h3 {
+  font-size: 20px;
+}
+
+.resource-link {
+  padding-top: 18px;
+}
+
+.resource-panel {
+  padding: clamp(20px, 3vw, 30px);
+}
+
+@media (max-width: 980px) {
+  .section-grid {
+    gap: 32px;
+  }
+}
+
+@media (max-width: 740px) {
+  main>.section {
+    padding: 46px 0;
+  }
+
+  .section h2 {
+    font-size: clamp(2rem, 7vw, 2.6rem);
+  }
+
+  .section-heading-row {
+    gap: 20px;
+  }
+
+  .section-body {
+    padding-top: 0;
+  }
+
+  .platform-grid,
+  .results-board,
+  .resource-grid {
+    margin-top: 28px;
+  }
+
+  .platform-card {
+    min-height: auto;
+    padding: 20px;
+  }
+
+  .platform-card h3 {
+    font-size: 25px;
+  }
+
+  .method-step {
+    min-height: auto;
+  }
+
+  .model-panel,
+  .results-board {
+    padding: 20px 16px;
+  }
+
+  .timeline {
+    margin: 30px 0 0;
+  }
+
+  .timeline-item {
+    gap: 12px;
+    min-height: auto;
+    padding: 18px 0;
+  }
+
+  .timeline-copy h3 {
+    font-size: 18px;
+  }
+
+  .resource-card {
+    min-height: 215px;
+    padding: 16px;
+  }
+
+  .resource-card h3 {
+    font-size: 18px;
+  }
+
+  .resource-type {
+    margin-top: 20px;
+  }
+}
+
+/* Four-line question heading. */
+.question-heading>span {
+  display: block;
+}
+
+/* Use the shared heading size on phones and allow readable wrapping. */
+@media (max-width: 740px) {
+  .question-heading>span {
+    display: inline;
+  }
+}
+/* Data introduction: heading first, supporting copy below. */
+#data .section-heading-row {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+#data .heading-aside { max-width: 760px; margin: 0; }
+#data h2 { white-space: nowrap; }
+@media (max-width: 380px) {
+  #data h2 { font-size: 1.85rem; }
+}
+
+/* Related studies within Section 01. */
+.related-work {
+  grid-column: 1 / -1;
+  min-width: 0;
+  padding-top: 28px;
+  border-top: 1px solid var(--gray);
+}
+.related-work h3 { margin: 0 0 12px; color: var(--navy); font-size: 26px; letter-spacing: -0.03em; }
+.related-work-intro { margin: 0 0 22px; max-width: 760px; font-size: 14px; }
+.related-work-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.related-work-grid article { display: flex; flex-direction: column; padding: 20px; background: #F5F7FA; border: 1px solid var(--gray); border-radius: var(--radius-md); }
+.related-work-grid h4 { margin: 0 0 10px; color: var(--navy); font-size: 16px; }
+.related-work-grid p { margin: 0 0 16px; font-size: 13px; line-height: 1.65; }
+.related-work-grid a { align-self: flex-start; margin-top: auto; padding: 8px 0; color: #315FC4; font-size: 13px; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+.related-work-focus { margin-top: 20px; padding: 18px 20px; border-left: 3px solid #315FC4; background: #F5F7FA; }
+.related-work-focus strong { color: var(--navy); }
+.related-work-focus p { margin: 8px 0 0; font-size: 14px; line-height: 1.65; }
+@media (max-width: 980px) { .related-work-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 740px) { .related-work-grid { grid-template-columns: 1fr; } .related-work h3 { font-size: 23px; } }
+
+.related-work-summary {
+  margin: 0;
+  width: 100%;
+  max-width: none;
+  font-size: 14px;
+  line-height: 1.75;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+/* Approach introduction: single-line heading with description underneath. */
+#method .section-heading-row {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+#method .heading-aside { max-width: 760px; margin: 0; }
+#method h2 { white-space: nowrap; }
+@media (max-width: 740px) {
+  #method h2 { font-size: clamp(1.3rem, 5.6vw, 2.6rem); }
+}
+
+/* Title above the complete metrics row. */
+.metrics-title {
+  margin: 28px 0 16px;
+  color: var(--navy);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+}
+.metrics-title + .metrics-row { margin-top: 0; }
+@media (max-width: 740px) { .metrics-title { font-size: 22px; } }
+
+/* Journey introduction: heading with description directly below. */
+#progress .section-heading-row {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+#progress .heading-aside { max-width: 760px; margin: 0; }
+#progress h2 { white-space: nowrap; }
+@media (max-width: 740px) {
+  #progress h2 { font-size: clamp(1.5rem, 6.5vw, 2.6rem); }
+}
+
+/* Readout and Library introductions match the other section headings. */
+#results .section-heading-row,
+#files .section-heading-row {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+#results .heading-aside,
+#files .heading-aside { max-width: 760px; margin: 0; }
+#results h2,
+#files h2 { white-space: nowrap; }
+@media (max-width: 740px) {
+  #results h2 { font-size: clamp(1rem, 4.8vw, 2.2rem); }
+  #files h2 { font-size: clamp(1rem, 5vw, 2.3rem); }
+}
+
+/* Team panel with monogram portraits and understated blue accents. */
+.team-panel {
+  margin-top: 40px;
+  padding: clamp(22px, 3vw, 36px);
+  background: var(--white);
+  border: 1px solid rgba(30, 58, 95, .08);
+  border-radius: 22px;
+  box-shadow: 0 12px 30px rgba(30, 58, 95, .04);
+}
+.team-panel-heading { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-bottom: 26px; }
+.team-panel .eyebrow { color: #526785; font-size: 10px; }
+.team-panel h3 { margin: 0; color: var(--navy); font-size: clamp(25px, 3vw, 34px); font-weight: 700; line-height: 1.15; letter-spacing: -.045em; }
+.team-panel h3 > span { color: #315FC4; }
+.team-project-tag { display: inline-flex; align-items: center; gap: 10px; padding: 9px 13px; border: 1px solid #DCE4F0; border-radius: 100px; color: #526785; font-size: 11px; white-space: nowrap; }
+.team-project-tag > span { color: #A4B4CC; }
+.team-member-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; padding: 0; margin: 0; list-style: none; }
+.team-member { position: relative; display: flex; align-items: center; gap: 15px; padding: 26px 20px; border: 1px solid #E2E8F1; border-radius: 16px; background: linear-gradient(135deg, #F8FAFD, #F0F4FA); min-width: 0; }
+.team-avatar { display: grid; place-items: center; flex: 0 0 54px; height: 54px; border-radius: 17px; background: var(--navy); color: white; font-size: 18px; font-weight: 700; letter-spacing: -.04em; }
+.team-member:nth-child(2) .team-avatar { background: #315FC4; }
+.team-member:nth-child(3) .team-avatar { background: #526785; }
+.team-member-copy { min-width: 0; position: relative; }
+.team-member-label { display: block; color: #526785; font-size: 10px; margin-bottom: 5px; }
+.team-member h4 { margin: 0; color: var(--navy); font-size: 15px; line-height: 1.4; font-weight: 700; overflow-wrap: anywhere; }
+.team-member-number { position: absolute; right: 12px; top: 9px; font-size: 10px; color: #6C7D95; }
+@media (max-width: 980px) {
+  .team-member { flex-direction: column; align-items: flex-start; padding: 22px 18px; }
+}
+@media (max-width: 740px) {
+  .team-panel { margin-top: 28px; border-radius: 18px; }
+  .team-panel-heading { align-items: flex-start; flex-direction: column; gap: 14px; margin-bottom: 20px; }
+  .team-member-grid { grid-template-columns: 1fr; gap: 10px; }
+  .team-member { flex-direction: row; align-items: center; padding: 20px 16px; }
+  .team-avatar { flex-basis: 48px; height: 48px; border-radius: 14px; font-size: 16px; }
+}
+
+/* Phone introductions need real layout gaps, including when stacked. */
+@media (max-width: 740px) {
+  main .section .section-heading-row {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+  main .section[id] .section-heading-row > .heading-aside {
+    margin: 0;
+  }
+  main .section .section-grid > .section-body {
+    padding-top: 24px;
+  }
+  #problem .question-heading { margin-bottom: 0; }
+}
+
+/* Evidence-based project snapshot replaces the decorative hero chart. */
+.hero-visual.project-snapshot {
+  min-height: 0;
+  width: 100%;
+  margin: 0;
+  padding: clamp(22px, 2.4vw, 32px);
+  color: var(--navy);
+  background: #FFFFFF;
+  border: 1px solid rgba(255,255,255,.35);
+  border-radius: 22px;
+  box-shadow: 0 24px 60px rgba(9, 25, 48, .2);
+  transform: none;
+}
+.snapshot-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #526785; }
+.snapshot-badge { border: 1px solid #DAE4F4; border-radius: 100px; padding: 6px 9px; background: #F3F6FC; color: #315FC4; font-size: 9px; letter-spacing: .04em; }
+.project-snapshot h2 { margin: 22px 0 10px; color: var(--navy); font-size: clamp(24px, 2.5vw, 32px); line-height: 1.12; letter-spacing: -.04em; }
+.snapshot-intro { margin: 0; font-size: 12px; line-height: 1.6; color: #526785; }
+.snapshot-sources { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; margin: 22px 0; }
+.snapshot-sources > div { min-width: 0; padding: 16px; border: 1px solid #E0E7F1; background: #F5F7FB; border-radius: 12px; }
+.snapshot-source-icon { display: grid; place-items: center; height: 30px; width: 30px; margin-bottom: 12px; border-radius: 9px; background: #E2EAF9; color: #315FC4; font-size: 14px; font-weight: 800; }
+.snapshot-sources strong { display: block; font-size: 15px; }
+.snapshot-sources > div > span:last-child { display: block; margin-top: 4px; font-size: 10px; color: #526785; }
+.snapshot-block { padding-top: 18px; border-top: 1px solid #E0E7F1; }
+.snapshot-block h3 { margin: 0 0 10px; color: #526785; font-size: 10px; text-transform: uppercase; letter-spacing: .07em; font-weight: 700; }
+.snapshot-chips { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; margin: 0 0 18px; padding: 0; }
+.snapshot-chips li { background: #EEF3FC; color: #294E91; border-radius: 6px; padding: 7px 9px; font-size: 10px; font-weight: 600; }
+.snapshot-evaluation { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.snapshot-evaluation strong { font-size: 16px; letter-spacing: -.02em; }
+.snapshot-evaluation p { margin: 5px 0 0; font-size: 11px; line-height: 1.5; color: #526785; }
+.snapshot-footer { display: flex; align-items: center; gap: 8px; margin-top: 20px; padding-top: 14px; border-top: 1px solid #E0E7F1; color: #526785; font-size: 10px; }
+.snapshot-dot { width: 6px; height: 6px; flex-shrink: 0; background: #315FC4; border-radius: 50%; }
+@media (max-width: 980px) { .hero-visual.project-snapshot { margin: 0; transform: none; } }
+@media (max-width: 740px) {
+  .hero-visual.project-snapshot { padding: 22px; border-radius: 18px; }
+  .project-snapshot h2 { font-size: 27px; }
+  .snapshot-sources > div { padding: 12px; }
+  .snapshot-evaluation { gap: 12px; }
+}
+
+/* Hide the research snapshot on phones. */
+@media (max-width: 740px) {
+  .hero-visual.project-snapshot { display: none; }
 }
