@@ -44,3 +44,21 @@ reveals.forEach((item) => revealObserver.observe(item));
 const updateHeader = () => header?.classList.toggle('is-scrolled', window.scrollY > 10);
 window.addEventListener('scroll', updateHeader, { passive: true });
 updateHeader();
+
+const resourceCards = document.querySelectorAll('.resource-grid .resource-card');
+const resourcePanels = document.querySelectorAll('#files .resource-panel');
+
+resourceCards.forEach((card) => {
+  card.addEventListener('click', () => {
+    const panelId = card.getAttribute('aria-controls');
+    const shouldOpen = card.getAttribute('aria-expanded') !== 'true';
+    resourceCards.forEach((item) => {
+      const selected = shouldOpen && item === card;
+      item.classList.toggle('resource-card-dark', selected);
+      item.setAttribute('aria-expanded', String(selected));
+    });
+    resourcePanels.forEach((panel) => {
+      panel.hidden = !shouldOpen || panel.id !== panelId;
+    });
+  });
+});
