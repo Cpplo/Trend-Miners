@@ -67,27 +67,17 @@
           </div>
         </div>
 
-        <div class="hero-visual reveal reveal-delay" aria-label="Research overview graphic">
-          <div class="orbit orbit-one"></div>
-          <div class="orbit orbit-two"></div>
-          <div class="signal-card">
-            <div class="signal-card-top"><span>Review Signal</span><span class="signal-status"><i></i> mapping</span>
-            </div>
-            <div class="signal-score"><strong>5</strong><span>/ 5<br />Rating Classes</span></div>
-            <div class="signal-bars" aria-hidden="true">
-              <span style="--bar-height: 34%"></span><span style="--bar-height: 53%"></span><span
-                style="--bar-height: 76%"></span><span style="--bar-height: 46%"></span><span
-                style="--bar-height: 90%"></span><span style="--bar-height: 62%"></span><span
-                style="--bar-height: 78%"></span><span style="--bar-height: 42%"></span><span
-                style="--bar-height: 68%"></span><span style="--bar-height: 84%"></span><span
-                style="--bar-height: 50%"></span><span style="--bar-height: 72%"></span>
-            </div>
-            <div class="signal-labels"><span>Wongnai</span><span>Google Maps</span></div>
+        <aside class="hero-visual project-snapshot reveal reveal-delay" aria-labelledby="snapshot-title">
+          <div class="snapshot-top"><span>Research snapshot</span><span class="snapshot-badge">Study design</span></div>
+          <h2 id="snapshot-title">Two platforms.<br />Three classifiers.</h2>
+          <div class="snapshot-sources">
+            <div><span class="snapshot-source-icon" aria-hidden="true">W</span><strong>Wongnai</strong><span>Public dataset</span></div>
+            <div><span class="snapshot-source-icon" aria-hidden="true">G</span><strong>Google Maps</strong><span>Collected reviews</span></div>
           </div>
-          <div class="floating-note note-one"><span>01</span> Platform Comparison</div>
-          <div class="floating-note note-two"><span>02</span> Class Balance</div>
-          <div class="hero-stamp">TH<br /><span>REVIEW</span><br />LAB</div>
-        </div>
+          <div class="snapshot-block"><h3>Models</h3><ul class="snapshot-chips" role="list"><li>Logistic Regression</li><li>Random Forest</li><li>XGBoost</li></ul></div>
+          <div class="snapshot-block snapshot-evaluation"><div><h3>Primary metric</h3><strong>Macro-F1</strong></div><div><h3>Evaluation</h3><strong>Cross-platform</strong></div></div>
+          <div class="snapshot-footer"><span class="snapshot-dot" aria-hidden="true"></span>Focus: class imbalance &amp; transfer</div>
+        </aside>
       </div>
       <div class="hero-bottom container"><span>Scroll to investigate</span><span class="scroll-line"></span><span>01 —
           07</span></div>
@@ -98,7 +88,7 @@
         <div class="section-intro reveal">
           <div class="section-number">01 <span>/ 07</span></div>
           <p class="eyebrow">The question</p>
-          <h2 class="sech">Two Platforms.<br /><em>One</em> Complex Signal.</h2>
+          <h2 class="sech question-heading"><span>Two</span> <span>Platforms.</span> <span><em>One</em> Complex</span> <span>Signal.</span></h2>
         </div>
         <div class="section-body reveal reveal-delay">
           <p class="lead-copy">Online restaurant reviews hold a detailed record of customer satisfaction. Yet the signal
@@ -110,7 +100,7 @@
             <span class="question-mark">?</span>
             <div>
               <p class="eyebrow">Research question</p>
-              <h3>How do class-imbalance strategies affect model performance across Thai restaurant review platforms?
+              <h3>How do class-imbalance strategies affect <br> model performance across Thai restaurant review platforms?
               </h3>
             </div>
           </div>
@@ -126,6 +116,12 @@
             </div>
           </div>
         </div>
+
+        <section class="related-work" aria-labelledby="related-work-title">
+          <p class="eyebrow">Research background</p>
+          <h3 id="related-work-title">Related Work</h3>
+          <p class="related-work-summary">Previous studies examine Thai restaurant sentiment classification (Songram et al., 2025), Google Maps restaurant reviews (Shin et al., 2022), and cross-domain Thai sentiment classification (Boonpetch &amp; Chitsobhuk, 2019). Research on hybrid WangchanBERTa models (Songram et al., 2026) and SMOTE (Chawla et al., 2002) also informs our approach. Building on these studies, we compare three classifiers and class-imbalance strategies across Wongnai and Google Maps.</p>
+        </section>
       </div>
     </section>
 
@@ -135,7 +131,7 @@
           <div>
             <div class="section-number">02 <span>/ 07</span></div>
             <p class="eyebrow">The evidence</p>
-            <h2>Data with<br /><em>context.</em></h2>
+            <h2>Data with <em>context.</em></h2>
           </div>
           <p class="heading-aside">Two distinct sources keep the comparison honest. Each dataset is prepared separately
             before the models meet the same experimental framework.</p>
@@ -187,10 +183,9 @@
           <div>
             <div class="section-number">04 <span>/ 07</span></div>
             <p class="eyebrow">The approach</p>
-            <h2>From raw text<br /><em>to insight.</em></h2>
+            <h2>From raw text <em>to insight.</em></h2>
           </div>
-          <p class="heading-aside">A repeatable CRISP-DM workflow keeps every comparison traceable—from cleaning Thai
-            text to reading the final confusion matrix.</p>
+          <p class="heading-aside">A repeatable CRISP-DM workflow keeps every comparison traceable&mdash;from cleaning Thai text to reading the final confusion matrix.</p>
         </div>
         <div class="method-layout">
           <div class="method-rail reveal"><span class="rail-label">CRISP-DM</span>
@@ -226,9 +221,10 @@
               <div class="strategy-row"><span>No handling</span><span>Class weighting</span><span>SMOTE /
                   oversampling</span></div>
             </div>
-            <div class="metrics-row reveal">
+            <h3 class="metrics-title reveal">What we measure</h3>
+              <div class="metrics-row reveal">
               <div>
-                <p class="eyebrow">What we measure</p><strong>Macro-F1</strong><span>Primary lens for imbalanced
+                <strong>Macro-F1</strong><span>Primary lens for imbalanced
                   classes.</span>
               </div>
               <div><strong>Accuracy</strong><span>Overall correctness.</span></div>
@@ -246,7 +242,7 @@
           <div>
             <div class="section-number">05 <span>/ 07</span></div>
             <p class="eyebrow eyebrow-light">The journey</p>
-            <h2>Progress, in<br /><em>public.</em></h2>
+            <h2>Progress, in <em>public.</em></h2>
           </div>
           <p class="heading-aside">A living log keeps the work legible: what is done, what is moving, and what comes
             next.</p>
@@ -258,40 +254,145 @@
             <div class="timeline-copy">
               <div class="status-pill">Complete</div>
               <h3>Milestone 01 · Direction</h3>
-              <p>Selected the topic, defined the problem, reviewed related research, and prepared the initial proposal.
+              <p>Selected the topic of Thai restaurant review sentiment classification, defined the research problem,
+                reviewed related studies, and prepared the initial project proposal.
               </p>
-              <div class="timeline-next">Next <span>Finalize datasets · Continue literature review · Prepare webpage</span></div>
+              <div class="timeline-next">Next <span>Finalize datasets · Refine research questions · Prepare the project
+                  website</span></div>
             </div>
           </article>
-          <article class="timeline-item timeline-current reveal reveal-delay">
+          <article class="timeline-item timeline-done reveal">
             <div class="timeline-date"><span>28</span><strong>OCT 2026</strong></div>
             <div class="timeline-marker"><i></i></div>
             <div class="timeline-copy">
-              <div class="status-pill status-current">In progress</div>
+              <div class="status-pill">Complete</div>
               <h3>Milestone 02 · Foundation</h3>
-              <p>Confirmed both datasets, the research question, model set, evaluation metrics, and CRISP-DM workflow.
+              <p>Confirmed the two review sources and refined the research questions. Selected Logistic Regression,
+                Random Forest, and XGBoost for comparison. Established Accuracy, Precision, Recall, F1-Score, and
+                Macro-F1 as evaluation metrics.
               </p>
-              <div class="timeline-next">Now <span>Collect Google Maps reviews · clean data</span></div>
+              <div class="timeline-next">Next <span>Collect Google Maps reviews · Examine dataset structure · Define
+                  sentiment labels</span></div>
             </div>
           </article>
-          <article class="timeline-item reveal">
-            <div class="timeline-date"><span>10—12</span><strong>NOV 2026</strong></div>
+          <article class="timeline-item timeline-done reveal">
+            <div class="timeline-date"><span>30</span><strong>OCT 2026</strong></div>
+            <div class="timeline-marker"><i></i></div>
+            <div class="timeline-copy">
+              <div class="status-pill">Complete</div>
+              <h3>Milestone 03 · Data Collection</h3>
+              <p>Obtain the Wongnai dataset and collect Google Maps restaurant reviews. Organize review text, ratings,
+                and platform information into a consistent structure. Document the collection process and dataset
+                limitations.
+              </p>
+              <div class="timeline-next">Next <span>Check data quality · Remove duplicates · Examine sentiment
+                  distributions</span></div>
+            </div>
+          </article>
+          <article class="timeline-item timeline-done reveal">
+            <div class="timeline-date"><span>5</span><strong>NOV 2026</strong></div>
+            <div class="timeline-marker"><i></i></div>
+            <div class="timeline-copy">
+              <div class="status-pill">Complete</div>
+              <h3>Milestone 04 · Data Preparation</h3>
+              <p>Examine missing values, duplicate reviews, and class distributions. Clean review text and apply
+                consistent sentiment-labeling rules across both platforms. Document preprocessing decisions to support
+                reproducibility.
+              </p>
+              <div class="timeline-next">Next <span>Tokenize Thai text · Establish data splits · Prepare feature
+                  extraction</span></div>
+            </div>
+          </article>
+          <article class="timeline-item timeline-current reveal reveal-delay">
+            <div class="timeline-date"><span>10</span><strong>NOV 2026</strong></div>
+            <div class="timeline-marker"><i></i></div>
+            <div class="timeline-copy">
+              <div class="status-pill">Planned</div>
+              <h3>Milestone 05 · Text Processing</h3>
+              <p>Tokenize Thai reviews using PyThaiNLP and inspect the processed text. Establish training and testing
+                splits, then fit TF-IDF on the training data to prepare features for classification.
+              </p>
+              <div class="timeline-next">Next <span>TTrain baseline models · Record initial performance</span></div>
+            </div>
+          </article>
+          <article class="timeline-item timeline-current reveal reveal-delay">
+            <div class="timeline-date"><span>11</span><strong>NOV 2026</strong></div>
+            <div class="timeline-marker"><i></i></div>
+            <div class="timeline-copy">
+              <div class="status-pill">Planned</div>
+              <h3>Milestone 06 · Baseline Models</h3>
+              <p>Train Logistic Regression, Random Forest, and XGBoost using the prepared TF-IDF features. Evaluate
+                initial performance using the selected metrics, emphasizing Macro-F1 to assess performance across
+                sentiment classes.
+              </p>
+              <div class="timeline-next">Next <span>Compare model results · Examine confusion matrices · Identify
+                  classification errors</span></div>
+            </div>
+          </article>
+          <article class="timeline-item timeline-current reveal reveal-delay">
+            <div class="timeline-date"><span>12</span><strong>NOV 2026</strong></div>
             <div class="timeline-marker"><i></i></div>
             <div class="timeline-copy">
               <div class="status-pill status-planned">Planned</div>
-              <h3>Milestone 03 · Experiments</h3>
-              <p>Generate TF-IDF features, run baseline and classification models, and record initial results.</p>
-              <div class="timeline-next">Next <span>Prepare the first paper draft</span></div>
+              <h3>Milestone 07 · Initial Findings</h3>
+              <p>Compare baseline model performance and inspect misclassified reviews. Identify potential effects of
+                class imbalance and summarize the initial findings in tables for the first paper draft.</p>
+              <div class="timeline-next">Next <span>Tune model parameters · Evaluate imbalance-handling methods · Draft
+                  the methodology</span></div>
             </div>
           </article>
           <article class="timeline-item reveal">
-            <div class="timeline-date"><span>24—26</span><strong>NOV 2026</strong></div>
+            <div class="timeline-date"><span>16-20</span><strong>NOV 2026</strong></div>
             <div class="timeline-marker"><i></i></div>
             <div class="timeline-copy">
               <div class="status-pill status-planned">Planned</div>
-              <h3>Final milestone · Interpretation</h3>
-              <p>Complete experiments, interpret the results, finalize the paper, and prepare the final presentation.
+              <h3>Milestone 08 · Advanced Experiments</h3>
+              <p>Tune model parameters and evaluate class weighting and SMOTE where appropriate. Conduct cross-platform
+                testing between Wongnai and Google Maps to assess model generalization. Explore K-Means clustering and
+                assess whether cluster information improves sentiment classification.
               </p>
+              <div class="timeline-next">Next <span>TConsolidate experimental results · Analyze classification errors ·
+                  Prepare comparison tables</span></div>
+            </div>
+          </article>
+          <article class="timeline-item reveal">
+            <div class="timeline-date"><span>24</span><strong>NOV 2026</strong></div>
+            <div class="timeline-marker"><i></i></div>
+            <div class="timeline-copy">
+              <div class="status-pill status-planned">Planned</div>
+              <h3>Milestone 09 · Results Interpretation</h3>
+              <p>Compare the final results within and across platforms. Interpret model strengths, classification
+                errors, and the effects of imbalance handling. Relate the findings to the research questions and
+                previous studies.
+              </p>
+              <div class="timeline-next">Next <span>Complete the discussion · Explain limitations · Draft the
+                  conclusion</span></div>
+            </div>
+          </article>
+          <article class="timeline-item reveal">
+            <div class="timeline-date"><span>25</span><strong>NOV 2026</strong></div>
+            <div class="timeline-marker"><i></i></div>
+            <div class="timeline-copy">
+              <div class="status-pill status-planned">Planned</div>
+              <h3>Milestone 10 · Paper Finalization</h3>
+              <p>Revise the methodology, results, discussion, and conclusion. Check references, tables, and consistency
+                between the research objectives and findings. Update the project website with the final results.
+              </p>
+              <div class="timeline-next">Next <span>Proofread the paper · Finalize slides · Rehearse the
+                  presentation</span></div>
+            </div>
+          </article>
+          <article class="timeline-item reveal">
+            <div class="timeline-date"><span>26</span><strong>NOV 2026</strong></div>
+            <div class="timeline-marker"><i></i></div>
+            <div class="timeline-copy">
+              <div class="status-pill status-planned">Planned</div>
+              <h3>Final Milestone · Presentation</h3>
+              <p>Finalize the research paper and present the project’s methods, model comparisons, and cross-platform
+                findings. Explain the study’s limitations and propose directions for future research.
+              </p>
+              <div class="timeline-next">Output <span>Final paper · Model comparison · Updated website · Project
+                  presentation</span></div>
             </div>
           </article>
         </div>
@@ -304,7 +405,7 @@
           <div>
             <div class="section-number">06 <span>/ 07</span></div>
             <p class="eyebrow">The readout</p>
-            <h2>Results will<br /><em>take shape here.</em></h2>
+            <h2>Results will <em>take shape here.</em></h2>
           </div>
           <p class="heading-aside">The structure is ready for the final experiment log. Drop in scores, charts, and the
             short interpretation that matters most.</p>
@@ -361,37 +462,86 @@
           <div>
             <div class="section-number">07 <span>/ 07</span></div>
             <p class="eyebrow">The library</p>
-            <h2>Everything<br /><em>in one place.</em></h2>
+            <h2>Everything <em>in one place.</em></h2>
           </div>
           <p class="heading-aside">This is the handoff layer. Replace each placeholder with the team’s final paper,
             code, datasets, citations, and presentation links.</p>
         </div>
-        <div class="resource-grid reveal"><a class="resource-card resource-card-dark" href="#files"><span
-              class="resource-icon">↳</span><span class="resource-type">Report</span>
-            <h3>Paper PDF</h3>
-            <p>Add the final paper link when ready.</p><span class="resource-link">Add link <b>↗</b></span>
-          </a><a class="resource-card" href="https://huggingface.co/datasets/iamwarint/wongnai-restaurant-review"
-            target="_blank" rel="noreferrer"><span class="resource-icon">◌</span><span class="resource-type">Dataset
-              01</span>
-            <h3>Wongnai 2025</h3>
-            <p>Open the public Hugging Face dataset.</p><span class="resource-link">Open source <b>↗</b></span>
-          </a><a class="resource-card" href="#files"><span class="resource-icon">⌘</span><span
-              class="resource-type">Code</span>
-            <h3>Repository</h3>
-            <p>Add the GitHub or notebook link.</p><span class="resource-link">Add link <b>↗</b></span>
-          </a><a class="resource-card" href="#files"><span class="resource-icon">✦</span><span
-              class="resource-type">References</span>
-            <h3>Reading list</h3>
-            <p>Keep the 10+ final citations together.</p><span class="resource-link">Add list <b>↗</b></span>
-          </a></div>
-        <div class="handoff-banner reveal">
-          <div>
-            <p class="eyebrow">Team handoff</p>
-            <h3>Replace the placeholders with your final story.</h3>
-          </div>
-          <div class="team-placeholders"><span>Thae Su Win Thu</span><span>Yann Naing Kyaw</span><span>Phyo Wai Aung</span>
-          </div>
+        <div class="resource-grid reveal">
+<button type="button" class="resource-card resource-card-dark" aria-expanded="true" aria-controls="paper-panel">
+            <span class="resource-icon" aria-hidden="true">&#8599;</span>
+            <span class="resource-type">Report</span>
+            <h3>Paper PDF</h3><p>View the project paper and download details.</p>
+            <span class="resource-link">View details <b aria-hidden="true">&#8595;</b></span>
+          </button>
+<button type="button" class="resource-card" aria-expanded="false" aria-controls="dataset-panel">
+            <span class="resource-icon" aria-hidden="true">&#8599;</span>
+            <span class="resource-type">Datasets</span>
+            <h3>Wongnai 2025</h3><p>Explore the datasets used in our study.</p>
+            <span class="resource-link">View details <b aria-hidden="true">&#8595;</b></span>
+          </button>
+<section id="paper-panel" class="references-panel resource-panel" aria-labelledby="paper-title">
+          <p class="eyebrow">Project report</p><h3 id="paper-title">Paper PDF</h3>
+          <p>The final project paper will be available here when ready.</p>
+        </section>
+<section id="dataset-panel" class="references-panel resource-panel" aria-labelledby="dataset-title" hidden>
+          <p class="eyebrow">Research data</p><h3 id="dataset-title">Datasets</h3>
+          <p><strong>Wongnai:</strong> Public Thai restaurant review dataset.</p>
+          <p><a href="https://huggingface.co/datasets/iamwarint/wongnai-restaurant-review" target="_blank" rel="noopener noreferrer">Open Wongnai dataset &#8599;</a></p>
+          <p><strong>Google Maps Thailand:</strong> The collected dataset and availability details will be added when ready.</p>
+        </section>
+<button type="button" class="resource-card" aria-expanded="false" aria-controls="repository-panel">
+            <span class="resource-icon" aria-hidden="true">&#8599;</span>
+            <span class="resource-type">Code</span>
+            <h3>Repository</h3><p>Find the project code and notebooks.</p>
+            <span class="resource-link">View details <b aria-hidden="true">&#8595;</b></span>
+          </button>
+<button type="button" class="resource-card" aria-expanded="false" aria-controls="references-list">
+            <span class="resource-icon" aria-hidden="true">&#8599;</span>
+            <span class="resource-type">References</span>
+            <h3>Reading list</h3><p>Explore the five references used in our project.</p>
+            <span class="resource-link">View details <b aria-hidden="true">&#8595;</b></span>
+          </button>
+<section id="repository-panel" class="references-panel resource-panel" aria-labelledby="repository-title" hidden>
+          <p class="eyebrow">Project code</p><h3 id="repository-title">GitHub repository</h3>
+          <p>The GitHub repository link and notebooks will be added when ready.</p>
+        </section>
+<section id="references-list" class="references-panel resource-panel" aria-labelledby="references-title" hidden>
+          <p class="eyebrow">Project sources</p>
+          <h3 id="references-title">References</h3>
+
+          <ol class="references-items references-apa" role="list">
+            <li>Boonpetch, W., &amp; Chitsobhuk, O. (2019). Cross domain sentiment classification of Thai reviews using co-train model. <em>Proceedings of SPIE, 11384</em>. <a href="https://doi.org/10.1117/12.2559609" target="_blank" rel="noopener noreferrer">https://doi.org/10.1117/12.2559609</a></li>
+            <li>Chawla, N. V., Bowyer, K. W., Hall, L. O., &amp; Kegelmeyer, W. P. (2002). SMOTE: Synthetic minority over-sampling technique. <em>Journal of Artificial Intelligence Research, 16</em>, 321&ndash;357. <a href="https://doi.org/10.1613/jair.953" target="_blank" rel="noopener noreferrer">https://doi.org/10.1613/jair.953</a></li>
+            <li>Shin, B., Ryu, S., Kim, Y., &amp; Kim, D. (2022). Analysis on review data of restaurants in Google Maps through text mining: Focusing on sentiment analysis. <em>Journal of Multimedia Information System, 9</em>(1), 61&ndash;68. <a href="https://doi.org/10.33851/JMIS.2022.9.1.61" target="_blank" rel="noopener noreferrer">https://doi.org/10.33851/JMIS.2022.9.1.61</a></li>
+            <li>Songram, P., Khummanee, S., Kawattikul, K., &amp; Muangnak, N. (2026). Hybrid WangchanBERTa architectures for multi-class Thai sentiment analysis. <em>ECTI Transactions on Computer and Information Technology, 20</em>(2), 233&ndash;246. <a href="https://doi.org/10.37936/ecti-cit.2026202.264201" target="_blank" rel="noopener noreferrer">https://doi.org/10.37936/ecti-cit.2026202.264201</a></li>
+            <li>Songram, P., Ritthisit, I., Jareanpon, C., &amp; Muangnak, N. (2025). A comparative study of machine learning and deep learning models for sentiment analysis on Thai restaurant reviews. <em>ICIC Express Letters, Part B: Applications, 16</em>(4), 379&ndash;386. <a href="https://doi.org/10.24507/icicelb.16.04.379" target="_blank" rel="noopener noreferrer">https://doi.org/10.24507/icicelb.16.04.379</a></li>
+          </ol>
+        </section>
         </div>
+        <section class="team-panel reveal" aria-labelledby="team-title">
+          <div class="team-panel-heading">
+            <div><p class="eyebrow">The people behind the project</p><h3 id="team-title">Meet the team<span>.</span></h3></div>
+            <span class="team-project-tag">TrendMiners <span aria-hidden="true">/</span> ICT324</span>
+          </div>
+          <ul class="team-member-grid" role="list">
+            <li class="team-member">
+              <span class="team-avatar" aria-hidden="true">TS</span>
+              <div class="team-member-copy"><span class="team-member-label">6806690</span><h4>Thae Su Win Thu</h4></div>
+              <span class="team-member-number" aria-hidden="true">01</span>
+            </li>
+            <li class="team-member">
+              <span class="team-avatar" aria-hidden="true">YN</span>
+              <div class="team-member-copy"><span class="team-member-label">680</span><h4>Yann Naing Kyaw</h4></div>
+              <span class="team-member-number" aria-hidden="true">02</span>
+            </li>
+            <li class="team-member">
+              <span class="team-avatar" aria-hidden="true">PW</span>
+              <div class="team-member-copy"><span class="team-member-label">680</span><h4>Phyo Wai Aung</h4></div>
+              <span class="team-member-number" aria-hidden="true">03</span>
+            </li>
+          </ul>
+        </section>
       </div>
     </section>
   </main>
@@ -399,8 +549,8 @@
   <footer class="site-footer section-dark">
     <div class="container footer-main"><a class="wordmark wordmark-light" href="#home"><span class="wordmark-mark"
           aria-hidden="true"><span></span><span></span><span></span></span><span>Trend<span>Miners</span></span></a>
-      <p style="max-width: 500px;">A comparative study of Thai restaurant review sentiment classification across platforms.</p><a
-        class="footer-top" href="#home">Back to top <span>↑</span></a>
+      <p style="max-width: 500px;">A comparative study of Thai restaurant review sentiment classification across
+        platforms.</p><a class="footer-top" href="#home">Back to top <span>↑</span></a>
     </div>
     <div class="container footer-bottom"><span>ICT324 · Introduction to Data Warehousing and Data
         Mining</span><span>Academic year 2026</span><span>Prepared for project presentation</span></div>
