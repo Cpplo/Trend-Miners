@@ -28,7 +28,7 @@ body {
   overflow-x: hidden;
   color: var(--charcoal);
   background: var(--white);
-  font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: "Quicksand", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   line-height: 1.55;
 }
 
@@ -582,7 +582,7 @@ h2 em {
 }
 
 .hero-stamp span {
-  font-family: Inter, ui-sans-serif, sans-serif;
+  font-family: "Quicksand", ui-sans-serif, sans-serif;
   font-size: 7px;
   font-weight: 800;
   letter-spacing: .24em;
@@ -694,7 +694,7 @@ h2 em {
   max-width: 500px;
   margin: 0;
   color: var(--navy);
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "Playfair Display";
   font-size: 21px;
   font-weight: 400;
   line-height: 1.25;
@@ -2755,4 +2755,73 @@ main>.section {
 /* Hide the research snapshot on phones. */
 @media (max-width: 740px) {
   .hero-visual.project-snapshot { display: none; }
+}
+
+/* Research evidence extends existing sections without changing navigation or card behavior. */
+.related-work h3, .research-details h3 { overflow-wrap: anywhere; }
+.research-details { margin-top: 28px; min-width: 0; }
+.experiment-details { padding:20px; border:1px solid #DCE3ED; border-radius:12px; background:#fff; }
+.experiment-details summary { cursor:pointer; color:var(--navy); font-weight:700; font-size:16px; line-height:1.5; }
+.experiment-details summary:focus-visible { outline:3px solid #315FC4; outline-offset:5px; }
+.experiment-settings { margin:18px 0 0; }
+.experiment-settings > div { display:grid; grid-template-columns:minmax(120px, 1fr) 3fr; gap:16px; padding:12px 0; border-top:1px solid #E2E8F1; font-size:12px; line-height:1.7; }
+.experiment-settings dt { color:var(--navy); font-weight:700; }
+.experiment-settings dd { margin:0; }
+@media(max-width:740px) { .experiment-settings > div { grid-template-columns:1fr; gap:4px; } .experiment-details { padding:16px; } }
+.research-details > h3 { margin: 0 0 16px; color: var(--navy); font-size: 22px; }
+.research-table-scroll { max-width: 100%; overflow-x: auto; margin-top: 20px; border: 1px solid #DCE3ED; border-radius: 12px; background: #FFFFFF; }
+.research-table-scroll:focus-visible { outline: 3px solid #315FC4; outline-offset: 3px; }
+.research-table { width: 100%; border-collapse: collapse; font-size: 12px; line-height: 1.6; text-align: left; }
+.research-table caption { text-align: left; padding: 14px 16px; color: #526785; font-size: 12px; }
+.research-table th, .research-table td { padding: 14px 16px; vertical-align: top; border-top: 1px solid #E2E8F1; overflow-wrap: anywhere; }
+.research-table thead th { background: #EEF3FA; color: var(--navy); font-weight: 700; }
+.research-table tbody th { color: var(--navy); font-weight: 600; }
+.benchmark-table { min-width: 540px; table-layout: fixed; }
+.benchmark-table th:first-child { width: 24%; }
+.benchmark-table th:nth-child(2) { width: 36%; }
+.benchmark-table th:nth-child(3) { width: 40%; }
+.dataset-details-table { min-width: 680px; }
+.research-table a, .evidence-note a { color: #315FC4; text-decoration: underline; text-underline-offset: 2px; }
+.evidence-note { margin: 18px 0 0; font-size: 12px; line-height: 1.7; color: #526078; }
+.dataset-source { margin-top: 18px !important; }
+.dataset-source a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.platform-card .platform-stats strong { font-size: 17px; overflow-wrap: anywhere; }
+.method-content { min-width: 0; }
+.method-note { font-size: 12px; line-height: 1.7; margin: 18px 0 0; }
+.method-notes { display: grid; gap: 14px; margin-top: 24px; }
+.method-notes article { background: #F6F8FB; border: 1px solid #E2E8F1; border-radius: 12px; padding: 20px; }
+.method-notes h3 { color: var(--navy); margin: 0 0 10px; font-size: 17px; }
+.method-notes p { margin: 8px 0 0; font-size: 13px; line-height: 1.7; }
+#method .metrics-row strong { font-family: inherit; font-size: 17px; font-weight: 650; }
+@media (max-width: 740px) {
+  .research-table th, .research-table td { padding: 12px; }
+  .related-work > h3 { font-size: 22px; line-height: 1.3; }
+  .method-notes article { padding: 16px; }
+  .research-details { margin-top: 24px; }
+}
+
+/* Preliminary result visualizations, using the existing navy/blue theme. */
+.result-summary-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px; margin-top:30px; }
+.result-summary-grid > div { padding:20px; border:1px solid #DCE3ED; border-radius:12px; background:#F5F8FC; }
+.result-summary-grid span { display:block; font-size:11px; color:#526078; line-height:1.5; }
+.result-summary-grid strong { display:block; margin-top:10px; font-size:28px; color:var(--navy); letter-spacing:-.04em; }
+.result-comparison { display:grid; gap:22px; margin-top:24px; }
+.result-model h4 { color:var(--navy); font-size:14px; margin:0 0 10px; }
+.result-bar-row { display:grid; grid-template-columns:80px minmax(0,1fr) 70px; align-items:center; gap:12px; margin-top:8px; font-size:12px; }
+.result-bar-row strong { text-align:right; color:var(--navy); font-variant-numeric:tabular-nums; }
+.result-bar-track { display:block; width:100%; padding:0; border:0; background:#E1E7F0; border-radius:5px; height:24px; overflow:hidden; cursor:pointer; appearance:none; }
+.result-bar-track:hover .result-bar-fill { filter:brightness(1.15); }
+.result-bar-track:focus-visible { outline:3px solid #315FC4; outline-offset:4px; }
+.chart-tooltip { position:fixed; z-index:1000; max-width:min(320px, calc(100vw - 24px)); padding:12px 15px; border:1px solid #526785; border-radius:10px; background:#182A40; color:#fff; font-size:12px; line-height:1.6; box-shadow:0 8px 24px rgba(12,28,50,.2); pointer-events:none; }
+.chart-tooltip[hidden] { display:none; }
+.result-bar-fill { display:block; background:#315FC4; height:100%; }
+.result-bar-f1 { background:#526785; }
+.result-matrix { min-width:550px; }
+.result-matrix th, .result-matrix td { text-align:left; }
+.result-matrix td { color:var(--navy); font-variant-numeric:tabular-nums; font-weight:600; }
+@media(max-width:740px) {
+ .result-summary-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+ .result-summary-grid > div { padding:16px; }
+ .result-summary-grid strong { font-size:24px; }
+ .result-bar-row { grid-template-columns:65px minmax(0,1fr) 62px; gap:8px; font-size:11px; }
 }
