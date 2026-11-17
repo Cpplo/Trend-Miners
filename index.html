@@ -9,6 +9,9 @@
     content="ReviewLab compares Thai restaurant review classification across Wongnai and Google Maps." />
   <title>ReviewLab — Thai Restaurant Review Classification</title>
   <link rel="icon" href="public/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <script defer src="script.js"></script>
 </head>
@@ -49,10 +52,7 @@
           <h1>Reading the <em>feeling</em> behind every review.</h1>
           <p class="hero-lede">A Comparative Study of Restaurant Review Sentiment Classification Across Thai Review
             Platforms</p>
-          <p class="hero-lede">This project studies sentiment classification of Thai restaurant reviews from two
-            different review platforms: Wongnai and Google Maps. We compare traditional machine learning models and
-            different class-imbalance handling strategies to determine which approach performs best across different
-            review platforms.</p>
+          <p class="hero-lede">This project compares Thai restaurant sentiment classification across Wongnai and Google Maps, testing whether K-Means distance features improve Logistic Regression alongside controlled class-imbalance experiments.</p>
           <div class="hero-actions">
             <a class="button button-light" href="#problem">Explore the study <span aria-hidden="true">↓</span></a>
             <a class="text-link text-link-light" href="#method">View the research map <span
@@ -72,11 +72,11 @@
           <h2 id="snapshot-title">Two platforms.<br />Three classifiers.</h2>
           <div class="snapshot-sources">
             <div><span class="snapshot-source-icon" aria-hidden="true">W</span><strong>Wongnai</strong><span>Public dataset</span></div>
-            <div><span class="snapshot-source-icon" aria-hidden="true">G</span><strong>Google Maps</strong><span>Collected reviews</span></div>
+            <div><span class="snapshot-source-icon" aria-hidden="true">G</span><strong>Google Maps</strong><span>Collection to confirm</span></div>
           </div>
           <div class="snapshot-block"><h3>Models</h3><ul class="snapshot-chips" role="list"><li>Logistic Regression</li><li>Random Forest</li><li>XGBoost</li></ul></div>
           <div class="snapshot-block snapshot-evaluation"><div><h3>Primary metric</h3><strong>Macro-F1</strong></div><div><h3>Evaluation</h3><strong>Cross-platform</strong></div></div>
-          <div class="snapshot-footer"><span class="snapshot-dot" aria-hidden="true"></span>Focus: class imbalance &amp; transfer</div>
+          <div class="snapshot-footer"><span class="snapshot-dot" aria-hidden="true"></span>Proposed: K-Means hybrid &amp; platform transfer</div>
         </aside>
       </div>
       <div class="hero-bottom container"><span>Scroll to investigate</span><span class="scroll-line"></span><span>01 —
@@ -100,8 +100,7 @@
             <span class="question-mark">?</span>
             <div>
               <p class="eyebrow">Research question</p>
-              <h3>How do class-imbalance strategies affect <br> model performance across Thai restaurant review platforms?
-              </h3>
+              <h3>How well do models transfer between platforms, and do K-Means distance features improve Logistic Regression?</h3>
             </div>
           </div>
           <div class="objective-row">
@@ -112,15 +111,28 @@
               <p>Compare models across two platforms.</p>
             </div>
             <div><span>03</span>
-              <p>Find the most effective approach.</p>
+              <p>Test whether K-Means features improve Logistic Regression.</p>
             </div>
           </div>
         </div>
 
         <section class="related-work" aria-labelledby="related-work-title">
           <p class="eyebrow">Research background</p>
-          <h3 id="related-work-title">Related Work</h3>
-          <p class="related-work-summary">Previous studies examine Thai restaurant sentiment classification (Songram et al., 2025), Google Maps restaurant reviews (Shin et al., 2022), and cross-domain Thai sentiment classification (Boonpetch &amp; Chitsobhuk, 2019). Research on hybrid WangchanBERTa models (Songram et al., 2026) and SMOTE (Chawla et al., 2002) also informs our approach. Building on these studies, we compare three classifiers and class-imbalance strategies across Wongnai and Google Maps.</p>
+          <h3 id="related-work-title">Previous Studies</h3>
+          <p class="related-work-summary">Three studies guide our model comparison, choice of review platforms, and transfer testing.</p>
+          <div class="research-table-scroll" role="region" aria-label="Selected previous studies; scroll horizontally on small screens" tabindex="0">
+            <table class="research-table benchmark-table">
+              <caption>Selected research and its relevance to our project</caption>
+              <thead><tr><th scope="col">Study</th><th scope="col">Focus</th><th scope="col">Comparability with our project</th></tr></thead>
+              <tbody>
+                <tr><th scope="row"><a href="https://doi.org/10.24507/icicelb.16.04.379" target="_blank" rel="noopener noreferrer">Songram et al. (2025)</a></th><td>Machine learning and deep learning for Thai restaurant reviews.</td><td>Same language and restaurant domain; matching dataset version and labels are unconfirmed.</td></tr>
+                <tr><th scope="row"><a href="https://www.jmis.org/archive/view_article?pid=jmis-9-1-61" target="_blank" rel="noopener noreferrer">Shin et al. (2022)</a></th><td>Google Maps restaurant reviews using TF-IDF and Random Forest.</td><td>Same platform and TF-IDF / Random Forest approach; different language and binary labels.</td></tr>
+                <tr><th scope="row"><a href="https://dspace.kmitl.ac.th/entities/publication/9b9dcd27-606b-4982-ae7b-230b4465cb67" target="_blank" rel="noopener noreferrer">Boonpetch &amp; Chitsobhuk (2019)</a></th><td>Cross-domain classification of Thai restaurant and movie reviews.</td><td>Transfer-learning context; restaurant-to-movie domains differ from our restaurant-platform comparison.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="evidence-note"><strong>Our research gap:</strong> Compare Thai restaurant sentiment classification across Wongnai and Google Maps, and test whether K-Means distance features improve Logistic Regression.</p>
+          <p class="evidence-note">These studies provide context, not directly comparable benchmarks. Dataset and label alignment and the reproduction baseline remain pending. Our preliminary results appear in Section 06; full references are in Section 07.</p>
         </section>
       </div>
     </section>
@@ -138,35 +150,44 @@
         </div>
         <div class="platform-grid">
           <article class="platform-card platform-card-dark reveal">
-            <div class="card-kicker"><span class="card-index">A</span><span>Dataset 01</span><span
-                class="card-arrow">↗</span></div>
+            <div class="card-kicker"><span class="card-index">A</span><span>Dataset 01</span></div>
             <h3>Wongnai</h3>
-            <p>Thai restaurant reviews collected from the public Wongnai dataset on Hugging Face.</p>
-            <div class="platform-stats">
-              <div><strong>~19,958</strong><span>reviews</span></div>
-              <div><strong>2025</strong><span>collection year</span></div>
-              <div><strong>1—5</strong><span>star rating</span></div>
-            </div>
-            <div class="tag-row"><span>Thai Language</span><span>Review Text</span></div>
+            <p>Candidate source: iamwarint/wongnai-restaurant-review, default configuration. The publisher describes collection in 2025; this is not a semantic version.</p>
+            <div class="platform-stats"><div><strong>19,958</strong><span>source-listed rows</span></div><div><strong>19,458 / 500</strong><span>source train / test</span></div><div><strong>1–5</strong><span>star-rating labels</span></div></div>
+            <p class="dataset-source"><a href="https://huggingface.co/datasets/iamwarint/wongnai-restaurant-review/blob/main/README.md" target="_blank" rel="noopener noreferrer">Dataset card &amp; counts</a> · <a href="https://huggingface.co/datasets/iamwarint/wongnai-restaurant-review/tree/main" target="_blank" rel="noopener noreferrer">Files / revision</a></p>
           </article>
           <article class="platform-card reveal reveal-delay">
-            <div class="card-kicker"><span class="card-index">B</span><span>Dataset 02</span><span
-                class="card-arrow">↗</span></div>
+            <div class="card-kicker"><span class="card-index">B</span><span>Dataset 02</span></div>
             <h3>Google Maps</h3>
-            <p>A self-collected sample from selected restaurants and categories across Thailand.</p>
-            <div class="platform-stats">
-              <div><strong>~1,000</strong><span>target records</span></div>
-              <div><strong>2026</strong><span>collection year</span></div>
-              <div><strong>1—5</strong><span>star rating</span></div>
-            </div>
-            <div class="tag-row"><span>Thailand</span><span>Self-collected Dataset</span></div>
+            <p>Proposed self-collected Thai restaurant reviews. Collection status, actual count, and export have not been verified for this update.</p>
+            <div class="platform-stats"><div><strong>~1,000</strong><span>proposal target only</span></div><div><strong>Pending</strong><span>actual count</span></div><div><strong>Pending</strong><span>collection period</span></div></div>
+            <div class="tag-row"><span>Collection details to be confirmed</span></div>
           </article>
         </div>
-        <div class="data-strip reveal">
-          <div><span class="strip-label">Planned fields</span><strong>ReviewID · RestaurantName · Location · Rating ·
-              ReviewDate · ReviewText · Language · CollectionDate</strong></div>
-          <div class="strip-note">No personal information in the public dataset.</div>
+        <div class="research-details">
+          <h3>Dataset sources &amp; labels</h3>
+          <div class="research-table-scroll" role="region" aria-label="Dataset overview" tabindex="0"><table class="research-table dataset-details-table">
+            <caption>Source counts and collection targets; final samples await confirmation</caption>
+            <thead><tr><th scope="col">Detail</th><th scope="col">Wongnai</th><th scope="col">Google Maps</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Source</th><td><a href="https://huggingface.co/datasets/iamwarint/wongnai-restaurant-review" target="_blank" rel="noopener noreferrer">iamwarint/wongnai-restaurant-review</a><br />Publisher reports collection in 2025.</td><td>Project collection of Thai restaurant reviews.</td></tr>
+              <tr><th scope="row">Review count</th><td>19,958 source rows.<br />Final cleaned count: pending.</td><td>Target: ~1,000 reviews.<br />Actual count: pending.</td></tr>
+              <tr><th scope="row">Class distribution</th><td colspan="2">Rating and sentiment counts before/after cleaning: to be confirmed.</td></tr>
+              <tr><th scope="row">Sentiment labels</th><td colspan="2">1&ndash;2 stars: Negative &middot; 3: Neutral &middot; 4&ndash;5: Positive.<br />Shown in the supplied figure; code confirmation pending. Ratings are proxies for sentiment.</td></tr>
+            </tbody>
+          </table></div>
+          <details class="research-details experiment-details">
+            <summary>Collection &amp; verification details</summary>
+            <dl class="experiment-settings">
+              <div><dt>Wongnai version</dt><dd>No numbered release. Confirm downloaded revision, files, checksum, and download date. Source partition: 19,458 train / 500 test.</dd></div>
+              <div><dt>Google Maps collection</dt><dd>Confirm method/tool, collection dates, review-date coverage, restaurant URLs, and export version.</dd></div>
+              <div><dt>Selection rules</dt><dd>Proposed: Thai review text with a valid rating. Confirm regions, restaurant categories, sampling order, language rules, and exclusions.</dd></div>
+              <div><dt>Data checks</dt><dd>Confirm raw and retained counts, duplicates, missing values, class distributions, and cross-platform overlap. Final split protocol remains proposed.</dd></div>
+              <div><dt>Study comparability</dt><dd>Matching Wongnai releases and labels are unconfirmed. Shin et al. used a separate Korean Google Maps sample with binary labels.</dd></div>
+            </dl>
+          </details>
         </div>
+        <div class="data-strip reveal"><div><span class="strip-label">Planned collection fields</span><strong>ReviewID · RestaurantName · Location · Rating · ReviewDate · ReviewText · Language · CollectionDate</strong></div><div class="strip-note">Public export fields and removal of personal information: To be confirmed.</div></div>
         <div class="prep-row reveal">
           <div><span class="section-number small">03 <span>/ 07</span></span>
             <p class="eyebrow">Preparation</p>
@@ -193,44 +214,52 @@
           </div>
           <div class="method-content">
             <div class="method-flow reveal reveal-delay">
-              <div class="method-step"><span>01</span>
-                <h3>Understand</h3>
-                <p>Frame the platform and class-imbalance question.</p>
-              </div>
-              <div class="method-step"><span>02</span>
-                <h3>Prepare</h3>
-                <p>Clean Thai text, remove noise, and create TF-IDF features.</p>
-              </div>
-              <div class="method-step"><span>03</span>
-                <h3>Model</h3>
-                <p>Train three algorithms under three balance strategies.</p>
-              </div>
+              <div class="method-step"><span>01</span><h3>Business understanding</h3><p>Define platform transfer and the hybrid improvement question.</p></div>
+              <div class="method-step"><span>02</span><h3>Data understanding</h3><p>Verify source revisions, labels, distributions, and collection records.</p></div>
+              <div class="method-step"><span>03</span><h3>Data preparation</h3><p>Remove duplicates, split data, tokenize Thai, and build training-only features.</p></div>
+              <div class="method-step"><span>04</span><h3>Modeling</h3><p>Compare supervised models, a reproduction baseline, and the proposed hybrid.</p></div>
+              <div class="method-step"><span>05</span><h3>Evaluation</h3><p>Measure per-class errors, Macro-F1, and platform transfer.</p></div>
+              <div class="method-step"><span>06</span><h3>Deployment</h3><p>Publish reproducible settings, limitations, and verified results on this website.</p></div>
             </div>
             <div class="model-panel reveal">
-              <div class="panel-top">
-                <p class="eyebrow">Experiment matrix</p><span class="panel-note">Placeholder results</span>
-              </div>
+              <div class="panel-top"><p class="eyebrow">Experiment plan</p><span class="panel-note">Proposed framework · initial results in Section 06</span></div>
               <div class="model-list">
-                <div><span class="model-type">Baseline</span><strong>Majority Classifier</strong><em>reference</em>
-                </div>
-                <div><span class="model-type">Model 01</span><strong>Logistic Regression</strong><em>interpretable</em>
-                </div>
-                <div><span class="model-type">Model 02</span><strong>Random Forest</strong><em>ensemble</em></div>
-                <div><span class="model-type">Model 03</span><strong>XGBoost</strong><em>boosted trees</em></div>
+                <div><span class="model-type">Sanity check</span><strong>Majority classifier</strong><em>reference</em></div>
+                <div><span class="model-type">Model 01</span><strong>Logistic Regression</strong><em>TF-IDF</em></div>
+                <div><span class="model-type">Model 02</span><strong>Random Forest</strong><em>TF-IDF</em></div>
+                <div><span class="model-type">Model 03</span><strong>XGBoost</strong><em>TF-IDF</em></div>
+                <div><span class="model-type">Hybrid</span><strong>TF-IDF + K-Means distances → Logistic Regression</strong><em>proposed</em></div>
               </div>
-              <div class="strategy-row"><span>No handling</span><span>Class weighting</span><span>SMOTE /
-                  oversampling</span></div>
+              <p class="method-note"><strong>Published-study baseline:</strong> selected paper, code, tokenizer, label mapping, split, hyperparameters, and reproduction details are pending confirmation. The majority classifier is a sanity check, not a literature reproduction.</p>
             </div>
+            <div class="method-notes">
+              <article><h3>Prepare without leakage</h3><p>Define fixed text-cleaning rules; remove empty/invalid reviews and exact duplicates, and check near-duplicates and cross-platform overlap before assigning splits. Keep duplicate groups in one partition; restaurant grouping is proposed where identifiers exist.</p><p>Split before fitting any learned transformation. Normalize noise and whitespace without discarding sentiment cues; tokenize Thai with PyThaiNLP (proposed: newmm). Tokenizer/package version, stop words, n-grams, and TF-IDF settings: To be confirmed.</p></article>
+              <article><h3>Test the K-Means hybrid</h3><p><strong>TF-IDF → K-Means → distances to cluster centres.</strong> Concatenate those distances with the original TF-IDF features, then train Logistic Regression. Clusters are features, not sentiment labels; the number of clusters need not equal the sentiment-class count.</p><p>Compare with ordinary TF-IDF + Logistic Regression using identical splits, folds, metrics, tuning budgets, and imbalance settings. Choose cluster count and any distance scaling on training folds only. Improvement is a research question, not a promised result.</p></article>
+              <article><h3>Fit on training data only</h3><p>Fit TF-IDF, K-Means, any scaling, and oversampling only on the training portion, refitting inside each cross-validation fold. Apply fitted transformations to validation/test reviews without refitting. Keep test labels and test data untouched during model selection.</p><p>Proposed: stratified training-fold cross-validation with a fixed held-out test set and recorded seeds. Split ratios, fold count, grouping rules, and the source's existing test-set use: To be confirmed.</p></article>
+              <article><h3>Control class imbalance</h3><p>Compare no balancing against class weighting where supported (or documented sample weights). Treat SMOTE as a separate, conditional experiment: check minority examples per fold, neighbor settings, sparse-text geometry, and memory feasibility. Do not apply SMOTE to raw text or test data.</p><p>For hybrid runs, learn centroids from original training TF-IDF, form combined features, then apply any approved training-only resampling. Keep ordinary and hybrid imbalance conditions matched; document omitted or infeasible runs.</p></article>
+              <article><h3>Separate evaluation settings</h3><p><strong>Within-platform:</strong> train and evaluate on disjoint reviews from the same platform. <strong>Cross-platform transfer:</strong> proposed Wongnai → Google Maps and Google Maps → Wongnai, using source-trained vocabulary, centroids, and classifier with the same approved labels.</p><p>Do not fit or tune on the target test platform; exclude overlapping reviews from source training. Final directions, target holdout, and sample-size controls are proposed and await approval. Report each direction separately.</p></article>
+            </div>
+
+            <details class="research-details experiment-details">
+              <summary>Experiment settings &amp; reproducibility</summary>
+              <p class="evidence-note">Record the settings used for the displayed run before treating it as a reproducible benchmark.</p>
+              <dl class="experiment-settings">
+                <div><dt>Dataset &amp; labels</dt><dd>Source revision, retained counts, and code-verified rating mapping: To be confirmed.</dd></div>
+                <div><dt>Evaluation split</dt><dd>Platform, train/test ratio, fold count, duplicate grouping, and random seed: To be confirmed.</dd></div>
+                <div><dt>Text features</dt><dd>PyThaiNLP version/tokenizer, stop words, TF-IDF n-grams, vocabulary limit, and document-frequency thresholds: To be confirmed.</dd></div>
+                <div><dt>Model settings</dt><dd>Classifier hyperparameters, tuning budget, class weights, and any SMOTE settings: To be confirmed.</dd></div>
+                <div><dt>K-Means selection</dt><dd>Candidate cluster counts, selection criterion, seed, initialization, and distance scaling: To be confirmed. Select using training-fold validation only.</dd></div>
+                <div><dt>Reproduction baseline</dt><dd>Published study, implementation, and matched dataset/label settings: To be confirmed.</dd></div>
+              </dl>
+            </details>
             <h3 class="metrics-title reveal">What we measure</h3>
-              <div class="metrics-row reveal">
-              <div>
-                <strong>Macro-F1</strong><span>Primary lens for imbalanced
-                  classes.</span>
-              </div>
-              <div><strong>Accuracy</strong><span>Overall correctness.</span></div>
-              <div><strong>Recall</strong><span>Coverage by class.</span></div>
-              <div><strong>Confusion Matrix</strong><span>Where models disagree.</span></div>
+            <div class="metrics-row reveal">
+              <div><strong>Macro-F1</strong><span>Primary metric; equal weight per class.</span></div>
+              <div><strong>Accuracy</strong><span>Overall fraction correct.</span></div>
+              <div><strong>Precision, Recall &amp; F1</strong><span>Per-class results and clearly named macro/weighted averages, with class support.</span></div>
+              <div><strong>Confusion matrices</strong><span>Class-level errors for each platform and transfer direction.</span></div>
             </div>
+            <p class="evidence-note">Report validation mean/variation and final held-out results separately. Initial supervised results are shown in Section 06; hybrid, balancing, and transfer results remain unverified. Technical references: <a href="https://pythainlp.org/docs/5.1/api/tokenize.html" target="_blank" rel="noopener noreferrer">Thai tokenization</a>, <a href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html" target="_blank" rel="noopener noreferrer">K-Means distance features</a>, <a href="https://scikit-learn.org/stable/common_pitfalls.html" target="_blank" rel="noopener noreferrer">training-only fitting</a>, <a href="https://imbalanced-learn.org/stable/common_pitfalls.html" target="_blank" rel="noopener noreferrer">resampling leakage</a>.</p>
           </div>
         </div>
       </div>
@@ -303,11 +332,11 @@
                   extraction</span></div>
             </div>
           </article>
-          <article class="timeline-item timeline-current reveal reveal-delay">
+          <article class="timeline-item timeline-done reveal reveal-delay">
             <div class="timeline-date"><span>10</span><strong>NOV 2026</strong></div>
             <div class="timeline-marker"><i></i></div>
             <div class="timeline-copy">
-              <div class="status-pill">Planned</div>
+              <div class="status-pill">Complete</div>
               <h3>Milestone 05 · Text Processing</h3>
               <p>Tokenize Thai reviews using PyThaiNLP and inspect the processed text. Establish training and testing
                 splits, then fit TF-IDF on the training data to prepare features for classification.
@@ -315,11 +344,11 @@
               <div class="timeline-next">Next <span>TTrain baseline models · Record initial performance</span></div>
             </div>
           </article>
-          <article class="timeline-item timeline-current reveal reveal-delay">
+          <article class="timeline-item timeline-done reveal reveal-delay">
             <div class="timeline-date"><span>11</span><strong>NOV 2026</strong></div>
             <div class="timeline-marker"><i></i></div>
             <div class="timeline-copy">
-              <div class="status-pill">Planned</div>
+              <div class="status-pill">Complete</div>
               <h3>Milestone 06 · Baseline Models</h3>
               <p>Train Logistic Regression, Random Forest, and XGBoost using the prepared TF-IDF features. Evaluate
                 initial performance using the selected metrics, emphasizing Macro-F1 to assess performance across
@@ -329,11 +358,11 @@
                   classification errors</span></div>
             </div>
           </article>
-          <article class="timeline-item timeline-current reveal reveal-delay">
+          <article class="timeline-item timeline-done reveal reveal-delay">
             <div class="timeline-date"><span>12</span><strong>NOV 2026</strong></div>
             <div class="timeline-marker"><i></i></div>
             <div class="timeline-copy">
-              <div class="status-pill status-planned">Planned</div>
+              <div class="status-pill">Complete</div>
               <h3>Milestone 07 · Initial Findings</h3>
               <p>Compare baseline model performance and inspect misclassified reviews. Identify potential effects of
                 class imbalance and summarize the initial findings in tables for the first paper draft.</p>
@@ -402,57 +431,58 @@
     <section class="section section-light results-section" id="results" data-section>
       <div class="container">
         <div class="section-heading-row reveal">
-          <div>
-            <div class="section-number">06 <span>/ 07</span></div>
-            <p class="eyebrow">The readout</p>
-            <h2>Results will <em>take shape here.</em></h2>
-          </div>
-          <p class="heading-aside">The structure is ready for the final experiment log. Drop in scores, charts, and the
-            short interpretation that matters most.</p>
+          <div><div class="section-number">06 <span>/ 07</span></div><p class="eyebrow">The readout</p><h2>First results, <em>closer look.</em></h2></div>
+          <p class="heading-aside">Preliminary results from the supplied model-comparison figure. Logistic Regression metrics below are recalculated from its confusion matrix; the other models are approximate chart readings.</p>
+        </div>
+        <div class="result-summary-grid reveal">
+          <div><span>Evaluated samples · LR matrix</span><strong>7,999</strong></div>
+          <div><span>Logistic Regression accuracy</span><strong>53.83%</strong></div>
+          <div><span>Logistic Regression Macro-F1</span><strong>0.5228</strong></div>
+          <div><span>Sentiment classes in this run</span><strong>3</strong></div>
         </div>
         <div class="results-board reveal">
-          <div class="board-header">
-            <div>
-              <p class="eyebrow">Planned comparison</p>
-              <h3>Macro-F1 by model & strategy</h3>
-            </div><span class="board-badge">Awaiting experiments</span>
-          </div>
-          <div class="chart-placeholder">
-            <div class="y-axis"><span>1.0</span><span>0.75</span><span>0.50</span><span>0.25</span><span>0.0</span>
-            </div>
-            <div class="chart-area">
-              <div class="chart-gridline"></div>
-              <div class="chart-gridline"></div>
-              <div class="chart-gridline"></div>
-              <div class="chart-gridline"></div>
-              <div class="chart-bars">
-                <div class="bar-group"><i class="bar bar-a"></i><i class="bar bar-b"></i><i
-                    class="bar bar-c"></i><span>Logistic<br />Regression</span></div>
-                <div class="bar-group"><i class="bar bar-a"></i><i class="bar bar-b"></i><i
-                    class="bar bar-c"></i><span>Random<br />Forest</span></div>
-                <div class="bar-group"><i class="bar bar-a"></i><i class="bar bar-b"></i><i
-                    class="bar bar-c"></i><span>XGBoost</span></div>
-              </div>
-            </div>
-          </div>
-          <div class="chart-legend"><span><i class="legend-dot dot-dark"></i> No handling</span><span><i
-                class="legend-dot dot-greige"></i> Class weighting</span><span><i class="legend-dot dot-gray"></i>
-              SMOTE</span></div>
+          <div class="board-header"><div><p class="eyebrow">Initial supervised comparison</p><h3>Accuracy and Macro-F1</h3></div><span class="board-badge">Preliminary · supplied figure</span></div>
+          <p class="evidence-note">Accuracy is shown as a percentage; Macro-F1 ranges from 0 to 1. Both bar lengths use the same 0–1 scale. Random Forest and XGBoost values are rounded estimates from the figure, not exact exported scores.</p>
+          <div class="result-comparison" aria-label="Preliminary model comparison"><div class="result-model"><h4>Logistic Regression</h4><div class="result-bar-row"><span>Accuracy</span><div class="result-bar-track"><span class="result-bar-fill" style="width:53.831728966120764%"></span></div><strong>53.83%</strong></div><div class="result-bar-row"><span>Macro-F1</span><div class="result-bar-track"><span class="result-bar-fill result-bar-f1" style="width:52.28076516745331%"></span></div><strong>0.5228</strong></div></div>
+<div class="result-model"><h4>Random Forest</h4><div class="result-bar-row"><span>Accuracy</span><div class="result-bar-track"><span class="result-bar-fill" style="width:55.00000000000001%"></span></div><strong>≈55%</strong></div><div class="result-bar-row"><span>Macro-F1</span><div class="result-bar-track"><span class="result-bar-fill result-bar-f1" style="width:48%"></span></div><strong>≈0.48</strong></div></div>
+<div class="result-model"><h4>XGBoost</h4><div class="result-bar-row"><span>Accuracy</span><div class="result-bar-track"><span class="result-bar-fill" style="width:51%"></span></div><strong>≈51%</strong></div><div class="result-bar-row"><span>Macro-F1</span><div class="result-bar-track"><span class="result-bar-fill result-bar-f1" style="width:50%"></span></div><strong>≈0.50</strong></div></div></div>
+          <p class="evidence-note">The chart suggests Random Forest has higher accuracy, while Logistic Regression has higher Macro-F1 among these three runs. Confirm with the numerical output before selecting a model. Dataset identity, split, seed, preprocessing, and balancing settings are not established by the image.</p>
         </div>
+        <div class="results-board reveal">
+          <div class="board-header"><div><p class="eyebrow">Logistic Regression</p><h3>Where predictions go wrong</h3></div><span class="board-badge">Counts transcribed from figure</span></div>
+          <div class="research-table-scroll" role="region" aria-label="Logistic Regression confusion matrix" tabindex="0"><table class="research-table result-matrix"><caption>Rows: actual class · Columns: predicted class · Darker cells indicate larger counts</caption><thead><tr><th scope="col">Actual / Predicted</th><th scope="col">Negative</th><th scope="col">Neutral</th><th scope="col">Positive</th><th scope="col">Support</th></tr></thead><tbody><tr><th scope="row">Negative (1–2 stars)</th><td style="background:rgba(49,95,196,0.290)">1,869</td><td style="background:rgba(49,95,196,0.150)">730</td><td style="background:rgba(49,95,196,0.095)">287</td><td>2,886</td></tr>
+<tr><th scope="row">Neutral (3 stars)</th><td style="background:rgba(49,95,196,0.185)">1,013</td><td style="background:rgba(49,95,196,0.272)">1,723</td><td style="background:rgba(49,95,196,0.185)">1,018</td><td>3,754</td></tr>
+<tr><th scope="row">Positive (4–5 stars)</th><td style="background:rgba(49,95,196,0.079)">154</td><td style="background:rgba(49,95,196,0.120)">491</td><td style="background:rgba(49,95,196,0.148)">714</td><td>1,359</td></tr></tbody></table></div>
+          <div class="research-table-scroll" role="region" aria-label="Per-class Logistic Regression results" tabindex="0"><table class="research-table result-matrix"><caption>Per-class metrics calculated from the supplied matrix; values rounded to four decimals</caption><thead><tr><th scope="col">Class</th><th scope="col">Precision</th><th scope="col">Recall</th><th scope="col">F1</th><th scope="col">Support</th></tr></thead><tbody><tr><th scope="row">Negative (1–2 stars)</th><td>0.6156</td><td>0.6476</td><td>0.6312</td><td>2,886</td></tr>
+<tr><th scope="row">Neutral (3 stars)</th><td>0.5853</td><td>0.4590</td><td>0.5145</td><td>3,754</td></tr>
+<tr><th scope="row">Positive (4–5 stars)</th><td>0.3536</td><td>0.5254</td><td>0.4227</td><td>1,359</td></tr></tbody></table></div>
+          <p class="evidence-note">Neutral has the largest support (3,754) but only 45.90% recall. Positive precision is 35.36%: many predicted positive reviews belong to other classes. These are observations about this run, not cross-platform conclusions.</p>
+        </div>
+
+        <details class="research-details experiment-details">
+          <summary>Hybrid &amp; platform comparisons</summary>
+          <p class="evidence-note">Proposed evaluations. No confirmed numerical exports are available for these comparisons.</p>
+          <div class="research-table-scroll" role="region" aria-label="Pending hybrid and platform comparisons" tabindex="0">
+            <table class="research-table result-matrix">
+              <caption>Report accuracy and Macro-F1 for each run; include test support and per-class results.</caption>
+              <thead><tr><th scope="col">Comparison</th><th scope="col">Evaluation</th><th scope="col">Result status</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Ordinary LR vs. LR + K-Means distances</th><td>Identical splits, tuning budgets, and balancing; report the change in Macro-F1.</td><td>Paired results pending</td></tr>
+                <tr><th scope="row">Wongnai &rarr; Wongnai</th><td>Disjoint within-platform test set.</td><td>Platform-specific results pending</td></tr>
+                <tr><th scope="row">Google Maps &rarr; Google Maps</th><td>Disjoint within-platform test set.</td><td>Platform-specific results pending</td></tr>
+                <tr><th scope="row">Wongnai &rarr; Google Maps</th><td>Fit on Wongnai; evaluate on untouched Google Maps reviews.</td><td>Transfer results pending</td></tr>
+                <tr><th scope="row">Google Maps &rarr; Wongnai</th><td>Fit on Google Maps; evaluate on untouched Wongnai reviews.</td><td>Transfer results pending</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="evidence-note">The existing image-derived results have no confirmed platform identity and are not assigned to these evaluation rows. Exact exported Random Forest and XGBoost scores remain to be confirmed.</p>
+        </details>
         <div class="finding-grid reveal">
-          <div><span class="finding-number">01</span>
-            <h3>Which model performs best?</h3>
-            <p>Placeholder for the headline result.</p>
-          </div>
-          <div><span class="finding-number">02</span>
-            <h3>Does balancing improve Macro-F1?</h3>
-            <p>Placeholder for the strategy comparison.</p>
-          </div>
-          <div><span class="finding-number">03</span>
-            <h3>Can one platform generalize?</h3>
-            <p>Placeholder for the cross-platform read.</p>
-          </div>
+          <div><span class="finding-number">01</span><h3>Labels shown in this run</h3><p>1–2 stars → negative; 3 stars → neutral; 4–5 stars → positive. Confirm the same mapping in the project code and across both platforms.</p></div>
+          <div><span class="finding-number">02</span><h3>Hybrid improvement remains open</h3><p>No paired K-Means + Logistic Regression result is visible in the supplied figure. Compare it with ordinary Logistic Regression under identical settings.</p></div>
+          <div><span class="finding-number">03</span><h3>Transfer remains unverified</h3><p>The figure does not identify the source dataset or transfer direction. Do not interpret these scores as Wongnai → Google Maps or the reverse.</p></div>
         </div>
+        <p class="evidence-note">Evidence scope: supplied comparison image only. The project archive could not be inspected during this update. Final dataset provenance, full numerical results, and reproducible experiment settings remain to be confirmed. Published scores in Section 01 are separate external evidence.</p>
       </div>
     </section>
 
@@ -486,9 +516,9 @@
         </section>
 <section id="dataset-panel" class="references-panel resource-panel" aria-labelledby="dataset-title" hidden>
           <p class="eyebrow">Research data</p><h3 id="dataset-title">Datasets</h3>
-          <p><strong>Wongnai:</strong> Public Thai restaurant review dataset.</p>
+          <p><strong>Wongnai:</strong> Candidate source with 19,958 source-listed rows; our downloaded revision and cleaned count are To be confirmed.</p>
           <p><a href="https://huggingface.co/datasets/iamwarint/wongnai-restaurant-review" target="_blank" rel="noopener noreferrer">Open Wongnai dataset &#8599;</a></p>
-          <p><strong>Google Maps Thailand:</strong> The collected dataset and availability details will be added when ready.</p>
+          <p><strong>Google Maps Thailand:</strong> Collection method, period, actual count, and availability: To be confirmed. Proposal target: approximately 1,000 reviews.</p>
         </section>
 <button type="button" class="resource-card" aria-expanded="false" aria-controls="repository-panel">
             <span class="resource-icon" aria-hidden="true">&#8599;</span>
@@ -499,7 +529,7 @@
 <button type="button" class="resource-card" aria-expanded="false" aria-controls="references-list">
             <span class="resource-icon" aria-hidden="true">&#8599;</span>
             <span class="resource-type">References</span>
-            <h3>Reading list</h3><p>Explore the five references used in our project.</p>
+            <h3>Reading list</h3><p>Explore the studies, benchmark, and dataset sources.</p>
             <span class="resource-link">View details <b aria-hidden="true">&#8595;</b></span>
           </button>
 <section id="repository-panel" class="references-panel resource-panel" aria-labelledby="repository-title" hidden>
@@ -515,7 +545,9 @@
             <li>Chawla, N. V., Bowyer, K. W., Hall, L. O., &amp; Kegelmeyer, W. P. (2002). SMOTE: Synthetic minority over-sampling technique. <em>Journal of Artificial Intelligence Research, 16</em>, 321&ndash;357. <a href="https://doi.org/10.1613/jair.953" target="_blank" rel="noopener noreferrer">https://doi.org/10.1613/jair.953</a></li>
             <li>Shin, B., Ryu, S., Kim, Y., &amp; Kim, D. (2022). Analysis on review data of restaurants in Google Maps through text mining: Focusing on sentiment analysis. <em>Journal of Multimedia Information System, 9</em>(1), 61&ndash;68. <a href="https://doi.org/10.33851/JMIS.2022.9.1.61" target="_blank" rel="noopener noreferrer">https://doi.org/10.33851/JMIS.2022.9.1.61</a></li>
             <li>Songram, P., Khummanee, S., Kawattikul, K., &amp; Muangnak, N. (2026). Hybrid WangchanBERTa architectures for multi-class Thai sentiment analysis. <em>ECTI Transactions on Computer and Information Technology, 20</em>(2), 233&ndash;246. <a href="https://doi.org/10.37936/ecti-cit.2026202.264201" target="_blank" rel="noopener noreferrer">https://doi.org/10.37936/ecti-cit.2026202.264201</a></li>
-            <li>Songram, P., Ritthisit, I., Jareanpon, C., &amp; Muangnak, N. (2025). A comparative study of machine learning and deep learning models for sentiment analysis on Thai restaurant reviews. <em>ICIC Express Letters, Part B: Applications, 16</em>(4), 379&ndash;386. <a href="https://doi.org/10.24507/icicelb.16.04.379" target="_blank" rel="noopener noreferrer">https://doi.org/10.24507/icicelb.16.04.379</a></li>
+            <li>Songram, P., Ritthisit, I., Jareanpon, C., &amp; Muangnak, N. (2025). A comparative study of machine learning and deep learning models for sentiment analysis on Thai restaurant reviews. <em>ICIC Express Letters, Part B: Applications, 16</em>(4), 379&ndash;386. <a href="https://doi.org/10.24507/icicelb.16.04.379" target="_blank" rel="noopener noreferrer">https://doi.org/10.24507/icicelb.16.04.379</a>. <a href="https://research.ku.ac.th/ku_resume/?idcode=480520" target="_blank" rel="noopener noreferrer">University record</a>; full-text methods and scores: To be verified.</li>
+            <li>PyThaiNLP. (n.d.). <em>Thai text classification benchmarks</em> [Code repository]. <a href="https://github.com/PyThaiNLP/classification-benchmarks" target="_blank" rel="noopener noreferrer">https://github.com/PyThaiNLP/classification-benchmarks</a></li>
+            <li>Warintorn J. (n.d.). <em>wongnai-restaurant-review</em> [Data set; publisher describes collection in 2025]. Hugging Face. <a href="https://huggingface.co/datasets/iamwarint/wongnai-restaurant-review" target="_blank" rel="noopener noreferrer">https://huggingface.co/datasets/iamwarint/wongnai-restaurant-review</a></li>
           </ol>
         </section>
         </div>
@@ -531,13 +563,13 @@
               <span class="team-member-number" aria-hidden="true">01</span>
             </li>
             <li class="team-member">
-              <span class="team-avatar" aria-hidden="true">YN</span>
-              <div class="team-member-copy"><span class="team-member-label">680</span><h4>Yann Naing Kyaw</h4></div>
+              <span class="team-avatar" aria-hidden="true">PW</span>
+              <div class="team-member-copy"><span class="team-member-label">6804825</span><h4>Phyo Wai Aung</h4></div>
               <span class="team-member-number" aria-hidden="true">02</span>
             </li>
             <li class="team-member">
-              <span class="team-avatar" aria-hidden="true">PW</span>
-              <div class="team-member-copy"><span class="team-member-label">680</span><h4>Phyo Wai Aung</h4></div>
+              <span class="team-avatar" aria-hidden="true">YN</span>
+              <div class="team-member-copy"><span class="team-member-label">6804826</span><h4>Yann Naing Kyaw</h4></div>
               <span class="team-member-number" aria-hidden="true">03</span>
             </li>
           </ul>
