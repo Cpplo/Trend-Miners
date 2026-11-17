@@ -45,6 +45,66 @@ const updateHeader = () => header?.classList.toggle('is-scrolled', window.scroll
 window.addEventListener('scroll', updateHeader, { passive: true });
 updateHeader();
 
+// A shared tooltip stays inside the viewport, including on narrow phones.
+const chartTooltip = document.createElement('div');
+chartTooltip.className = 'chart-tooltip';
+chartTooltip.id = 'chart-tooltip';
+chartTooltip.setAttribute('role', 'tooltip');
+chartTooltip.hidden = true;
+document.body.append(chartTooltip);
+let activeBar = null;
+
+function closeChartTooltip() {
+  activeBar?.removeAttribute('aria-describedby');
+  activeBar = null;
+  chartTooltip.hidden = true;
+}
+
+function showChartTooltip(bar) {
+  closeChartTooltip();
+  activeBar = bar;
+  chartTooltip.textContent = bar.getAttribute('aria-label');
+  chartTooltip.hidden = false;
+  bar.setAttribute('aria-describedby', chartTooltip.id);
+  const rect = bar.getBoundingClientRect();
+  const box = chartTooltip.getBoundingClientRect();
+  const left = Math.max(12, Math.min(rect.left + rect.width / 2 - box.width / 2, window.innerWidth - box.width - 12));
+  const top = rect.top >= box.height + 20 ? rect.top - box.height - 10 : rect.bottom + 10;
+  chartTooltip.style.left = `${left}px`;
+  chartTooltip.style.top = `${Math.max(12, Math.min(top, window.innerHeight - box.height - 12))}px`;
+}
+
+document.querySelectorAll('.result-bar-track').forEach((track) => {
+  const row = track.closest('.result-bar-row');
+  const model = track.closest('.result-model').querySelector('h4').textContent;
+  const metric = row.querySelector('span').textContent;
+  const value = row.querySelector('strong').textContent;
+  const approximate = value.includes('\u2248');
+  const bar = document.createElement('button');
+  bar.type = 'button';
+  bar.className = track.className;
+  bar.setAttribute('aria-label', `${model} · ${metric}: ${value}${approximate ? ' (approximate chart reading)' : ' (calculated from confusion matrix)'}`);
+  bar.append(...track.childNodes);
+  track.replaceWith(bar);
+  bar.addEventListener('pointerenter', (event) => {
+    if (event.pointerType !== 'touch') showChartTooltip(bar);
+  });
+  bar.addEventListener('pointerleave', () => {
+    if (document.activeElement !== bar && activeBar === bar) closeChartTooltip();
+  });
+  bar.addEventListener('focus', () => showChartTooltip(bar));
+  bar.addEventListener('blur', closeChartTooltip);
+  bar.addEventListener('click', () => showChartTooltip(bar));
+});
+document.addEventListener('pointerdown', (event) => {
+  if (!event.target.closest('.result-bar-track, .chart-tooltip')) closeChartTooltip();
+});
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') closeChartTooltip();
+});
+window.addEventListener('scroll', closeChartTooltip, { passive: true });
+window.addEventListener('resize', closeChartTooltip);
+
 const resourceCards = document.querySelectorAll('.resource-grid .resource-card');
 const resourcePanels = document.querySelectorAll('#files .resource-panel');
 
