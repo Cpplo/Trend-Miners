@@ -1,0 +1,10 @@
+feature_set,model,accuracy,macro_precision,macro_recall,macro_f1,weighted_f1,neg_f1,auc_roc_ovr,pr_auc_macro
+"F2: TF-IDF (1,2)",Logistic Regression,0.5561,0.4407,0.4826,0.4501,0.5728,0.2588,0.6762,0.4566
+"F2: TF-IDF (1,2)",Random Forest,0.5932,0.443,0.4596,0.4482,0.5922,0.2401,0.6488,0.4237
+"F2: TF-IDF (1,2)",XGBoost,0.5501,0.4378,0.488,0.4415,0.5734,0.2263,0.6741,0.45
+"F1: TF-IDF (1,1)",Random Forest,0.5973,0.4394,0.4499,0.4413,0.5918,0.2239,0.6459,0.4198
+F3: MiniLM Embeddings,XGBoost,0.5813,0.4376,0.4232,0.4291,0.5761,0.2122,0.6457,0.422
+"F1: TF-IDF (1,1)",XGBoost,0.5363,0.4266,0.4759,0.4285,0.5608,0.2173,0.67,0.4466
+"F1: TF-IDF (1,1)",Logistic Regression,0.5104,0.4204,0.4787,0.4184,0.5395,0.2214,0.6588,0.4424
+F3: MiniLM Embeddings,Logistic Regression,0.4936,0.4178,0.4905,0.4072,0.5279,0.219,0.6536,0.4389
+F3: MiniLM Embeddings,Random Forest,0.6361,0.3358,0.3346,0.2656,0.4991,0.0162,0.6203,0.3977

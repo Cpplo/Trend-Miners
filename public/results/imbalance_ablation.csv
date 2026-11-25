@@ -1,0 +1,6 @@
+strategy,accuracy,macro_f1,neg_recall,neg_f1,auc_roc
+1. Unweighted Baseline (TF-IDF),0.639,0.4045,0.0708,0.127,0.6874
+2. Balanced Weights (TF-IDF),0.5561,0.4501,0.3761,0.2588,0.6762
+3. Random Undersampling (TF-IDF),0.4789,0.4,0.5619,0.22,0.6568
+4. SMOTE (MiniLM Embeddings),0.4979,0.4081,0.5398,0.2153,0.649
+5. Threshold Tuned (TF-IDF),0.6242,0.4611,0.2677,0.2807,0.6874

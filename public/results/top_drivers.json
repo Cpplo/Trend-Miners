@@ -1,0 +1,188 @@
+{
+  "negative": [
+    [
+      "bad",
+      4.049
+    ],
+    [
+      "fly",
+      3.345
+    ],
+    [
+      "frustrating",
+      3.217
+    ],
+    [
+      "terrible",
+      3.187
+    ],
+    [
+      "not good",
+      3.045
+    ],
+    [
+      "not delicious",
+      2.984
+    ],
+    [
+      "two star",
+      2.801
+    ],
+    [
+      "no",
+      2.731
+    ],
+    [
+      "dry",
+      2.714
+    ],
+    [
+      "not okay",
+      2.65
+    ],
+    [
+      "didn",
+      2.638
+    ],
+    [
+      "dirty",
+      2.516
+    ],
+    [
+      "don",
+      2.498
+    ],
+    [
+      "eat nice",
+      2.467
+    ],
+    [
+      "not fresh",
+      2.442
+    ]
+  ],
+  "neutral": [
+    [
+      "standard",
+      2.285
+    ],
+    [
+      "three star",
+      2.247
+    ],
+    [
+      "menu",
+      2.034
+    ],
+    [
+      "square",
+      1.954
+    ],
+    [
+      "certain",
+      1.794
+    ],
+    [
+      "kfc",
+      1.669
+    ],
+    [
+      "but doesn",
+      1.667
+    ],
+    [
+      "nice smooth",
+      1.655
+    ],
+    [
+      "promotion",
+      1.582
+    ],
+    [
+      "might",
+      1.575
+    ],
+    [
+      "not bad",
+      1.546
+    ],
+    [
+      "bad but",
+      1.546
+    ],
+    [
+      "meal nice",
+      1.531
+    ],
+    [
+      "fine but",
+      1.527
+    ],
+    [
+      "closet",
+      1.515
+    ]
+  ],
+  "positive": [
+    [
+      "delicious",
+      4.166
+    ],
+    [
+      "not disappointed",
+      3.215
+    ],
+    [
+      "miss",
+      2.916
+    ],
+    [
+      "not too",
+      2.784
+    ],
+    [
+      "soft",
+      2.587
+    ],
+    [
+      "finn",
+      2.543
+    ],
+    [
+      "great",
+      2.296
+    ],
+    [
+      "best",
+      2.126
+    ],
+    [
+      "recommended",
+      2.096
+    ],
+    [
+      "nice",
+      2.083
+    ],
+    [
+      "classic",
+      2.039
+    ],
+    [
+      "lover",
+      1.989
+    ],
+    [
+      "full",
+      1.89
+    ],
+    [
+      "everyone",
+      1.736
+    ],
+    [
+      "heard",
+      1.647
+    ]
+  ]
+}

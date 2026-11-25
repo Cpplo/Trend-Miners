@@ -1,0 +1,167 @@
+{
+  "archive": "Latest_Update.zip",
+  "archive_sha256": "7fd032ecbe275edc12051326cf16619e10a247a154cc886a1940497985bae5d9",
+  "normalization": "Unicode NFKC, casefold, whitespace collapse; hashes only in memory",
+  "code_files": [],
+  "splits": {
+    "train": {
+      "rows": 31994,
+      "rating_counts": {
+        "1": 332,
+        "2": 1476,
+        "3": 9737,
+        "4": 15014,
+        "5": 5435
+      },
+      "label_mapping_mismatches": 0,
+      "thai_characters_in_original_column": 15386346,
+      "blank_text_rows": {
+        "review_clean_en": 17
+      },
+      "duplicates": {
+        "review_body": {
+          "unique_texts": 31994,
+          "extra_repeated_rows": 0,
+          "conflicting_label_groups": 0
+        },
+        "review_clean_en": {
+          "unique_texts": 31574,
+          "extra_repeated_rows": 403,
+          "conflicting_label_groups": 58
+        }
+      }
+    },
+    "test": {
+      "rows": 7999,
+      "rating_counts": {
+        "1": 83,
+        "2": 369,
+        "3": 2434,
+        "4": 3754,
+        "5": 1359
+      },
+      "label_mapping_mismatches": 0,
+      "thai_characters_in_original_column": 3894758,
+      "blank_text_rows": {
+        "review_clean_en": 2
+      },
+      "duplicates": {
+        "review_body": {
+          "unique_texts": 7999,
+          "extra_repeated_rows": 0,
+          "conflicting_label_groups": 0
+        },
+        "review_clean_en": {
+          "unique_texts": 7926,
+          "extra_repeated_rows": 71,
+          "conflicting_label_groups": 18
+        }
+      }
+    }
+  },
+  "train_test_overlap": {
+    "review_body": {
+      "shared_unique_texts": 0,
+      "affected_train_rows": 0,
+      "affected_test_rows": 0
+    },
+    "review_clean_en": {
+      "shared_unique_texts": 47,
+      "affected_train_rows": 348,
+      "affected_test_rows": 117
+    }
+  },
+  "prediction_order_matches_test_csv": true,
+  "selected_model": {
+    "accuracy": 0.5560695086885861,
+    "macro_f1": 0.45008126553037303,
+    "per_class": [
+      {
+        "precision": 0.19721577726218098,
+        "recall": 0.37610619469026546,
+        "f1": 0.258751902587519,
+        "support": 452
+      },
+      {
+        "precision": 0.3888888888888889,
+        "recall": 0.4486442070665571,
+        "f1": 0.4166348721861885,
+        "support": 2434
+      },
+      {
+        "precision": 0.735966735966736,
+        "recall": 0.6231175435165265,
+        "f1": 0.6748570218174116,
+        "support": 5113
+      }
+    ],
+    "matrix": [
+      [
+        170,
+        181,
+        101
+      ],
+      [
+        300,
+        1092,
+        1042
+      ],
+      [
+        392,
+        1535,
+        3186
+      ]
+    ]
+  },
+  "training_majority_class": 2,
+  "majority_baseline": {
+    "accuracy": 0.6392049006125766,
+    "macro_f1": 0.25996542607280865,
+    "per_class": [
+      {
+        "precision": 0,
+        "recall": 0,
+        "f1": 0,
+        "support": 452
+      },
+      {
+        "precision": 0,
+        "recall": 0,
+        "f1": 0,
+        "support": 2434
+      },
+      {
+        "precision": 0.6392049006125766,
+        "recall": 1,
+        "f1": 0.7798962782184259,
+        "support": 5113
+      }
+    ],
+    "matrix": [
+      [
+        0,
+        0,
+        452
+      ],
+      [
+        0,
+        0,
+        2434
+      ],
+      [
+        0,
+        0,
+        5113
+      ]
+    ]
+  },
+  "export_checks": {
+    "accuracy": true,
+    "macro_f1": true
+  },
+  "limitations": [
+    "Training code, source release, and translation provenance absent",
+    "Text overlap identifies evaluation risk; it does not prove how features or thresholds were fitted",
+    "Existing test results were previously inspected; a rerun is exploratory, not a new untouched evaluation"
+  ]
+}

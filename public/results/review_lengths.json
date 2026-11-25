@@ -1,0 +1,69 @@
+{
+  "source": "char_len column in supplied train/test_clean_en.csv",
+  "cutoff": 1500,
+  "quantiles": "linear interpolation at (n-1)*p",
+  "whiskers": "most extreme observations within 1.5 IQR",
+  "outlier_points": "omitted visually; counts retained",
+  "groups": [
+    {
+      "rating": 1,
+      "all_rows": 415,
+      "display_rows": 397,
+      "excluded_above_1500": 18,
+      "q1": 274.0,
+      "median": 384.0,
+      "q3": 588.0,
+      "whisker_low": 199.0,
+      "whisker_high": 1006.0,
+      "outliers_within_display_subset": 19
+    },
+    {
+      "rating": 2,
+      "all_rows": 1845,
+      "display_rows": 1745,
+      "excluded_above_1500": 100,
+      "q1": 284.0,
+      "median": 431.0,
+      "q3": 652.0,
+      "whisker_low": 200.0,
+      "whisker_high": 1202.0,
+      "outliers_within_display_subset": 72
+    },
+    {
+      "rating": 3,
+      "all_rows": 12171,
+      "display_rows": 11721,
+      "excluded_above_1500": 450,
+      "q1": 257.0,
+      "median": 369.0,
+      "q3": 575.0,
+      "whisker_low": 39.0,
+      "whisker_high": 1052.0,
+      "outliers_within_display_subset": 605
+    },
+    {
+      "rating": 4,
+      "all_rows": 18768,
+      "display_rows": 17897,
+      "excluded_above_1500": 871,
+      "q1": 249.0,
+      "median": 351.0,
+      "q3": 554.0,
+      "whisker_low": 28.0,
+      "whisker_high": 1011.0,
+      "outliers_within_display_subset": 1058
+    },
+    {
+      "rating": 5,
+      "all_rows": 6794,
+      "display_rows": 6435,
+      "excluded_above_1500": 359,
+      "q1": 244.0,
+      "median": 336.0,
+      "q3": 528.0,
+      "whisker_low": 43.0,
+      "whisker_high": 954.0,
+      "outliers_within_display_subset": 423
+    }
+  ]
+}
