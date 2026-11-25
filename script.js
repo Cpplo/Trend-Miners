@@ -219,6 +219,18 @@ document.querySelectorAll('[data-team-photo]').forEach((photo) => {
   updatePhoto();
 });
 
+// Toggle individual figure-traced ROC series without changing reported scores.
+document.querySelectorAll('[data-figure-roc]').forEach((button) => {
+  button.addEventListener('click', () => {
+    const series = document.getElementById(button.dataset.figureRoc);
+    if (!series) return;
+    const visible = button.getAttribute('aria-pressed') !== 'true';
+    button.setAttribute('aria-pressed', String(visible));
+    series.toggleAttribute('hidden', !visible);
+    if (!visible && activeBar && series.contains(activeBar)) closeChartTooltip();
+  });
+});
+
 const resourceCards = document.querySelectorAll('.resource-grid .resource-card');
 const resourcePanels = document.querySelectorAll('#files .resource-panel');
 
@@ -240,3 +252,4 @@ resourceCards.forEach((card) => {
     });
   });
 });
+
