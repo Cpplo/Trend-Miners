@@ -1,0 +1,23 @@
+{
+  "apify_clean_total": 6527,
+  "apify_restaurants": 496,
+  "thai_mixed_subset": {
+    "n": 3250,
+    "3class_accuracy": 0.8772,
+    "3class_macro_f1": 0.6296,
+    "3class_macro_auc": 0.9153,
+    "3class_neg_ovr_auc": 0.9738,
+    "binary_accuracy": 0.9629,
+    "binary_macro_f1": 0.8967,
+    "binary_neg_f1": 0.8141,
+    "binary_roc_auc": 0.9825
+  },
+  "english_subset": {
+    "n": 2950,
+    "3class_accuracy": 0.7664,
+    "3class_macro_f1": 0.5079,
+    "3class_macro_auc": 0.8124,
+    "3class_neg_ovr_auc": 0.8748,
+    "binary_roc_auc": 0.9053
+  }
+}

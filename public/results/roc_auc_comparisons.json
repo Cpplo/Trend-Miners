@@ -1,0 +1,87 @@
+{
+  "source_note": "Exact values from supplied JSON except external neutral/positive class AUCs, transcribed at three-decimal precision from supplied figure. No ROC coordinates supplied.",
+  "panels": [
+    {
+      "title": "Google Maps: three-class AUC",
+      "macro_auc": 0.9153,
+      "values": [
+        {
+          "label": "Negative",
+          "auc": 0.9738,
+          "source": "JSON"
+        },
+        {
+          "label": "Neutral",
+          "auc": 0.816,
+          "source": "Figure, rounded to 3 decimals"
+        },
+        {
+          "label": "Positive",
+          "auc": 0.956,
+          "source": "Figure, rounded to 3 decimals"
+        }
+      ]
+    },
+    {
+      "title": "Google Maps: binary ROC AUC",
+      "values": [
+        {
+          "label": "Thai / mixed",
+          "auc": 0.9825,
+          "source": "JSON"
+        },
+        {
+          "label": "English",
+          "auc": 0.9053,
+          "source": "JSON"
+        }
+      ]
+    },
+    {
+      "title": "Direct-Thai ensemble: class AUC",
+      "macro_auc": 0.8412,
+      "values": [
+        {
+          "label": "Negative",
+          "auc": 0.9342,
+          "source": "JSON"
+        },
+        {
+          "label": "Neutral",
+          "auc": 0.7626,
+          "source": "JSON"
+        },
+        {
+          "label": "Positive",
+          "auc": 0.8267,
+          "source": "JSON"
+        }
+      ]
+    },
+    {
+      "title": "Direct Thai: binary ROC AUC",
+      "values": [
+        {
+          "label": "Logistic Regression",
+          "auc": 0.9725,
+          "source": "JSON"
+        },
+        {
+          "label": "Calibrated LinearSVC",
+          "auc": 0.9728,
+          "source": "JSON"
+        },
+        {
+          "label": "XGBoost (Top 10k)",
+          "auc": 0.9549,
+          "source": "JSON"
+        },
+        {
+          "label": "Soft-Voting Ensemble",
+          "auc": 0.9736,
+          "source": "JSON"
+        }
+      ]
+    }
+  ]
+}

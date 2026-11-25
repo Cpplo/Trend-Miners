@@ -1,0 +1,38 @@
+{
+  "source": "Last_Update/Project_Update/data/apify_google_maps_clean.csv",
+  "rows": 6527,
+  "unique_restaurant_names": 496,
+  "rating_counts": {
+    "5": 5111,
+    "4": 617,
+    "2": 196,
+    "1": 348,
+    "3": 255
+  },
+  "script_counts": {
+    "Thai": 2744,
+    "English": 2950,
+    "Mixed (TH+EN)": 506,
+    "Other/Emoji-only": 327
+  },
+  "sentiment_counts": {
+    "negative": 544,
+    "neutral": 255,
+    "positive": 5728
+  },
+  "rating_mapping_verified": true,
+  "sha256": "aca7af46de2fcc986a331f796e9e18a739dfaace7fe0fa4f22a5b95ce2aada0c",
+  "fields": [
+    "title",
+    "stars",
+    "label_3",
+    "script",
+    "review_body"
+  ],
+  "limitations": [
+    "Restaurant count uses distinct titles, not verified place IDs.",
+    "No collection dates, restaurant URLs, Apify dataset URL or training source code supplied.",
+    "327 Other/Emoji-only reviews are outside the two reported language subsets.",
+    "External metrics transcribed from JSON; prediction-level validation unavailable."
+  ]
+}

@@ -2,7 +2,20 @@
 
 Updated 25 November 2026. This is a project results summary, not the final research paper.
 
-## Supplied experiment outputs
+## Final update: direct Thai and Google Maps
+
+- Google Maps cleaned export: 6,527 reviews across 496 distinct restaurant names.
+- Stars 1 / 2 / 3 / 4 / 5: 348 / 196 / 255 / 617 / 5,111. Three-class labels checked against stars.
+- Thai 2,744; mixed Thai/English 506; English 2,950; other/emoji-only 327.
+- Direct-Thai Soft-Voting Ensemble: three-class accuracy 72.67%, Macro-F1 0.6393, macro AUC 0.8412. Highest three-class Macro-F1 among four exported models.
+- Separate binary ensemble: accuracy 96.39%, Macro-F1 0.8748, ROC AUC 0.9736.
+- Google Maps external three-class Thai/mixed subset (3,250): accuracy 87.72%, Macro-F1 0.6296, macro AUC 0.9153.
+- English subset (2,950): accuracy 76.64%, Macro-F1 0.5079, macro AUC 0.8124.
+- 327 other/emoji-only reviews are outside the two reported external subsets.
+- New scores are reported JSON metrics; underlying prediction arrays and training code are not supplied for these evaluations. Exact model identity for external testing, source-training direction, split protocol, collection dates, restaurant URLs, and original Apify dataset URL remain undocumented. Reverse transfer is not reported.
+- Binary scores describe a separate task; no claim of a controlled gain over the older translated-English experiment is made.
+
+## Earlier translated-English experiment outputs
 
 - Labeled reviews: 39,993; training: 31,994; test: 7,999.
 - Unlabeled reviews: 6,203; no ground-truth accuracy is claimed for their predicted labels.
@@ -25,4 +38,4 @@ K=16, seed 42, balanced weights, grouped validation holdout, and 25 SGD epochs w
 
 ## Still required
 
-Original dataset release, acquisition/collection dates, translation provenance, original training notebook and validation settings, confirmed Google Maps ground truth, cross-platform experiments, final paper and GitHub URL. The proposal's 19,958-row candidate differs from the inspected archive.
+Original dataset release, acquisition/collection dates, translation provenance, original training notebook and validation settings, Google Maps collection documentation, external evaluation protocol, reverse-direction experiments, final paper and GitHub URL. The proposal's 19,958-row candidate differs from the inspected archive.

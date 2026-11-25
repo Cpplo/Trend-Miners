@@ -475,11 +475,12 @@
     "Positive (4–5★)": 3280
   },
   "limitations": [
-    "No training notebook or source code supplied",
-    "Source release and Google Maps identity unconfirmed",
+    "Original training source code and full validation protocol not supplied",
+    "Original Wongnai source release and Google Maps collection dates/URLs unconfirmed",
     "Translation provenance and leakage safeguards unverified",
     "Threshold-tuning validation protocol unverified",
-    "No hybrid or cross-platform output supplied"
+    "New direct-Thai and external metrics are reported exports; independent prediction-level verification unavailable",
+    "Reverse Google Maps-to-Wongnai evaluation not supplied"
   ],
   "data_quality_audit": {
     "archive": "Latest_Update.zip",
@@ -647,5 +648,132 @@
       "Text overlap identifies evaluation risk; it does not prove how features or thresholds were fitted",
       "Existing test results were previously inspected; a rerun is exploratory, not a new untouched evaluation"
     ]
+  },
+  "final_update": {
+    "source_folder": "Last_Update/Project_Update",
+    "direct_thai_reported_results": {
+      "task_3class": {
+        "Logistic Regression": {
+          "accuracy": 0.7021,
+          "macro_f1": 0.6278,
+          "macro_auc": 0.832,
+          "neg_ovr_auc": 0.9278,
+          "neu_ovr_auc": 0.7493,
+          "pos_ovr_auc": 0.8188
+        },
+        "Calibrated LinearSVC": {
+          "accuracy": 0.7312,
+          "macro_f1": 0.599,
+          "macro_auc": 0.8382,
+          "neg_ovr_auc": 0.9338,
+          "neu_ovr_auc": 0.7598,
+          "pos_ovr_auc": 0.821
+        },
+        "XGBoost (Top 10k)": {
+          "accuracy": 0.6927,
+          "macro_f1": 0.6068,
+          "macro_auc": 0.8252,
+          "neg_ovr_auc": 0.9141,
+          "neu_ovr_auc": 0.7456,
+          "pos_ovr_auc": 0.8157
+        },
+        "Soft-Voting Ensemble": {
+          "accuracy": 0.7267,
+          "macro_f1": 0.6393,
+          "macro_auc": 0.8412,
+          "neg_ovr_auc": 0.9342,
+          "neu_ovr_auc": 0.7626,
+          "pos_ovr_auc": 0.8267
+        }
+      },
+      "task_binary_polarity": {
+        "Logistic Regression": {
+          "accuracy": 0.9567,
+          "macro_f1": 0.8638,
+          "neg_f1": 0.7513,
+          "roc_auc": 0.9725
+        },
+        "Calibrated LinearSVC": {
+          "accuracy": 0.9641,
+          "macro_f1": 0.8637,
+          "neg_f1": 0.7468,
+          "roc_auc": 0.9728
+        },
+        "XGBoost (Top 10k)": {
+          "accuracy": 0.9452,
+          "macro_f1": 0.823,
+          "neg_f1": 0.6759,
+          "roc_auc": 0.9549
+        },
+        "Soft-Voting Ensemble": {
+          "accuracy": 0.9639,
+          "macro_f1": 0.8748,
+          "neg_f1": 0.7692,
+          "roc_auc": 0.9736
+        }
+      }
+    },
+    "external_reported_results": {
+      "apify_clean_total": 6527,
+      "apify_restaurants": 496,
+      "thai_mixed_subset": {
+        "n": 3250,
+        "3class_accuracy": 0.8772,
+        "3class_macro_f1": 0.6296,
+        "3class_macro_auc": 0.9153,
+        "3class_neg_ovr_auc": 0.9738,
+        "binary_accuracy": 0.9629,
+        "binary_macro_f1": 0.8967,
+        "binary_neg_f1": 0.8141,
+        "binary_roc_auc": 0.9825
+      },
+      "english_subset": {
+        "n": 2950,
+        "3class_accuracy": 0.7664,
+        "3class_macro_f1": 0.5079,
+        "3class_macro_auc": 0.8124,
+        "3class_neg_ovr_auc": 0.8748,
+        "binary_roc_auc": 0.9053
+      }
+    },
+    "google_maps_dataset_audit": {
+      "source": "Last_Update/Project_Update/data/apify_google_maps_clean.csv",
+      "rows": 6527,
+      "unique_restaurant_names": 496,
+      "rating_counts": {
+        "5": 5111,
+        "4": 617,
+        "2": 196,
+        "1": 348,
+        "3": 255
+      },
+      "script_counts": {
+        "Thai": 2744,
+        "English": 2950,
+        "Mixed (TH+EN)": 506,
+        "Other/Emoji-only": 327
+      },
+      "sentiment_counts": {
+        "negative": 544,
+        "neutral": 255,
+        "positive": 5728
+      },
+      "rating_mapping_verified": true,
+      "sha256": "aca7af46de2fcc986a331f796e9e18a739dfaace7fe0fa4f22a5b95ce2aada0c",
+      "fields": [
+        "title",
+        "stars",
+        "label_3",
+        "script",
+        "review_body"
+      ],
+      "limitations": [
+        "Restaurant count uses distinct titles, not verified place IDs.",
+        "No collection dates, restaurant URLs, Apify dataset URL or training source code supplied.",
+        "327 Other/Emoji-only reviews are outside the two reported language subsets.",
+        "External metrics transcribed from JSON; prediction-level validation unavailable."
+      ]
+    },
+    "verification_scope": "Google Maps CSV counts and labels checked; new metrics transcribed from supplied JSON, not independently recomputed."
   }
 }

@@ -1,0 +1,62 @@
+{
+  "task_3class": {
+    "Logistic Regression": {
+      "accuracy": 0.7021,
+      "macro_f1": 0.6278,
+      "macro_auc": 0.832,
+      "neg_ovr_auc": 0.9278,
+      "neu_ovr_auc": 0.7493,
+      "pos_ovr_auc": 0.8188
+    },
+    "Calibrated LinearSVC": {
+      "accuracy": 0.7312,
+      "macro_f1": 0.599,
+      "macro_auc": 0.8382,
+      "neg_ovr_auc": 0.9338,
+      "neu_ovr_auc": 0.7598,
+      "pos_ovr_auc": 0.821
+    },
+    "XGBoost (Top 10k)": {
+      "accuracy": 0.6927,
+      "macro_f1": 0.6068,
+      "macro_auc": 0.8252,
+      "neg_ovr_auc": 0.9141,
+      "neu_ovr_auc": 0.7456,
+      "pos_ovr_auc": 0.8157
+    },
+    "Soft-Voting Ensemble": {
+      "accuracy": 0.7267,
+      "macro_f1": 0.6393,
+      "macro_auc": 0.8412,
+      "neg_ovr_auc": 0.9342,
+      "neu_ovr_auc": 0.7626,
+      "pos_ovr_auc": 0.8267
+    }
+  },
+  "task_binary_polarity": {
+    "Logistic Regression": {
+      "accuracy": 0.9567,
+      "macro_f1": 0.8638,
+      "neg_f1": 0.7513,
+      "roc_auc": 0.9725
+    },
+    "Calibrated LinearSVC": {
+      "accuracy": 0.9641,
+      "macro_f1": 0.8637,
+      "neg_f1": 0.7468,
+      "roc_auc": 0.9728
+    },
+    "XGBoost (Top 10k)": {
+      "accuracy": 0.9452,
+      "macro_f1": 0.823,
+      "neg_f1": 0.6759,
+      "roc_auc": 0.9549
+    },
+    "Soft-Voting Ensemble": {
+      "accuracy": 0.9639,
+      "macro_f1": 0.8748,
+      "neg_f1": 0.7692,
+      "roc_auc": 0.9736
+    }
+  }
+}
